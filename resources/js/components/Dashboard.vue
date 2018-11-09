@@ -6,7 +6,6 @@
 		      :clipped="$vuetify.breakpoint.mdAndUp"
 		      app
 		      v-model="drawer"
-		      :mini-variant.sync="mini"
 		    >
 		    <side-bar></side-bar>  
 		    </v-navigation-drawer>
@@ -16,10 +15,12 @@
 		      app
 		      :clipped-left="$vuetify.breakpoint.mdAndUp"
 		      fixed
+		      class="transparent"
+		      flat
 		    >
 			    <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
 			        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-			        <span class="hidden-sm-and-down">Cook Cook</span>
+			        <span class="hidden-sm-and-down">Cook</span>
 			    </v-toolbar-title>
 	    	</v-toolbar>
 	    	<v-content>
@@ -39,13 +40,17 @@ import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import SideBar from './partials/Sidebar.vue'
  
-Vue.use(Vuetify)
+ Vue.use(Vuetify,{
+    iconfont: 'md'
+ })
 export default {
 
   	name: 'Dashboard',
 
 	data () {
 	    return {
+	    	height: $(window).height(),
+        	hidden: 'auto',
 	    	drawer: null,
 	    }
 	},
