@@ -1,0 +1,26 @@
+a{
+    text-decoration: none !important; 
+}
+.form-login-wrapper {
+	height: 100vh;
+	background-image: url("../img/various-car-parts-accessories-grey-background-d-illustration-gray-95695317.jpeg");
+	background-size: cover;
+}
+.login-form {
+	display: flex;
+	height: 100%;
+	align-items: center;
+}
+.loginOverlay {
+  background:rgba(33, 132, 243, 0.12);
+}
+.icon {
+	margin-right: 15px;
+}
+.text-login {
+	font-weight: bold;
+    font-size: 20px;
+}
+body{
+	font-size:16px;
+}

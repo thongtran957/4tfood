@@ -11,6 +11,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{{mix('css/app.css')}}">
+        <link rel="stylesheet" type="text/css" href="css/4tfood.css">
     </head>
     <body>
         <div id="app"></div>
