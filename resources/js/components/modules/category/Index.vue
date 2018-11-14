@@ -10,30 +10,33 @@
     <v-spacer></v-spacer>
     <v-btn @click="showAddItem" color="primary" dark class="mb-2">Add</v-btn>
     </v-toolbar>
-    <vuetable 
-          ref="vuetable" 
-          :fields="categoryFields" 
-          :api-url="apiUrl"
-          :css="css.table"
-          data-path="data"
-          :per-page="perPage"
-          pagination-path="data.data"
-          :append-params="moreParams"
-          @vuetable:pagination-data="onPaginationData"
-    >
-      <template slot="actions" slot-scope="props">        
-          <v-icon
-            color="blue"
-            @click="destroy(props.rowData.id)">
-            delete
-          </v-icon>
-           <v-icon
-            color="blue"
-            @click="showEditItem(props.rowData)">
-            edit
-          </v-icon>
-      </template>
-    </vuetable>
+    <category-filter></category-filter>
+    <div v-dragscroll.x class="big-box grab-bing ">
+      <vuetable 
+            ref="vuetable" 
+            :fields="categoryFields" 
+            :api-url="apiUrl"
+            :css="css.table"
+            data-path="data"
+            :per-page="perPage"
+            pagination-path="data.data"
+            :append-params="moreParams"
+            @vuetable:pagination-data="onPaginationData"
+      >
+        <template slot="actions" slot-scope="props">        
+            <v-icon
+              color="blue"
+              @click="destroy(props.rowData.id)">
+              delete
+            </v-icon>
+             <v-icon
+              color="blue"
+              @click="showEditItem(props.rowData)">
+              edit
+            </v-icon>
+        </template>
+      </vuetable>
+    </div>
     <div class="vuetable-pagination">
       <vuetable-pagination-info ref="paginationInfo"
           :css="css.paginationInfo"
@@ -82,7 +85,13 @@ import Vuetable from 'vuetable-2/src/components/Vuetable'
 import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
 import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
 import axios from 'axios'
+import CategoryFilter from './CategoryFilter'
+import VueEvents from 'vue-events'
+
+Vue.component('category-filter', CategoryFilter)
+
 Vue.use(Vuetable)
+Vue.use(VueEvents)
 export default {
 
   name: 'Index',
@@ -167,8 +176,16 @@ export default {
   components: {
     Vuetable ,
     VuetablePagination,
-    VuetablePaginationInfo     
+    VuetablePaginationInfo,
+    VueEvents    
   },
+
+  mounted(){
+    this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
+    this.$events.$on('filter-reset', e => this.onFilterReset())
+   
+  },
+
   methods: {
       close(){
         this.dialog =false 
@@ -251,7 +268,19 @@ export default {
 
       onChangePage (page) {
           this.$refs.vuetable.changePage(page)
-      }
+      },
+
+      onFilterSet (filterText) {
+        this.moreParams = {
+            'filter': filterText
+        }
+        Vue.nextTick( () => this.$refs.vuetable.refresh())
+      },
+
+      onFilterReset () {
+        this.moreParams = {}
+        Vue.nextTick( () => this.$refs.vuetable.refresh())
+      },
 
       
 
@@ -261,5 +290,18 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style>
+    .big-box {
+        overflow: scroll;
+    }
+    .grab-bing {
+        cursor: -webkit-grab;
+        cursor: -moz-grab;
+        cursor: -o-grab;
+        cursor: grab;
+    }
+    .oh {
+        overflow: hidden;
+    }
+
 </style>

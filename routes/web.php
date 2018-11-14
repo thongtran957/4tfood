@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test', function () {
+    $a = shell_exec('nano /home/thongtran/thong/web_app/4TFood/composer.json');
+    dd($a);
+});

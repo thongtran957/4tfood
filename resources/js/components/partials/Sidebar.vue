@@ -32,7 +32,8 @@ export default {
         items: [
           { title: 'Home', icon: 'dashboard', link: '/'},
           { title: 'About', icon: 'people', link: 'example' },
-          { title: 'Category', icon: 'category', link: 'category' }
+          { title: 'Category', icon: 'category', link: 'category' },
+          { title: 'Recipe', icon: 'receipt', link: 'recipe' }
         ]
     }
   },

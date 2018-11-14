@@ -30,4 +30,22 @@ class CategoryRepository extends BaseRepository
     {
         return Category::class;
     }
+
+    public function getCategories($sortBy, $perPage, $filter){
+        $listCategories = $this->model;
+        if($sortBy[0] =='id')
+            $listCategories = $this->model->orderBy('id', $sortBy[1]);
+        if($sortBy[0] =='name')
+            $listCategories = $this->model->orderBy('name', $sortBy[1]);
+        if(!empty($filter)){
+            if($filter && $filter->name){
+                $listCategories = $listCategories->where('name','like','%'.$filter->name.'%');
+            }
+        }
+
+        $listCategories = $listCategories->get();
+  
+        return $listCategories;
+
+    }
 }

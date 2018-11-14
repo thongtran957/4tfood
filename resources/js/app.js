@@ -24,6 +24,7 @@ import App from './components/App.vue'
 import Dashboard from './components/Dashboard.vue'
 import Example from './components/ExampleComponent.vue'
 import Category from './components/modules/category/Index.vue'
+import Recipe from './components/modules/recipe/Index.vue'
 
 const router = new VueRouter({
     routes: [            
@@ -41,6 +42,11 @@ const router = new VueRouter({
                     path:'/category',
                     name:'Category',
                     component:Category
+                },
+                {
+                    path:'/recipe',
+                    name:'Recipe',
+                    component:Recipe
                 }
 		
 			]

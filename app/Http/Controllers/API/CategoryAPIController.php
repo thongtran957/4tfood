@@ -38,7 +38,20 @@ class CategoryAPIController extends AppBaseController
     {
         $this->categoryRepository->pushCriteria(new RequestCriteria($request));
         $this->categoryRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $categories = $this->categoryRepository->all();
+
+        $input = $request->all();
+        $perPage = $request->input('per_page',10);
+        if($request->has('sort') && $request->input('sort'))
+            $sortBy = explode('|', $request->input('sort'));
+        else
+            $sortBy = explode('|', 'id|desc');
+
+        $filter = '';
+        if($request->has('filter') && $request->input('filter'))
+            $filter = json_decode($request->input('filter'));
+       
+        $categories = $this->categoryRepository->getCategories($sortBy, $perPage, $filter);
+        // $categories = $this->categoryRepository->all();
 
         return $this->sendResponse($categories->toArray(), 'Categories retrieved successfully');
     }
