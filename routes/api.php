@@ -19,5 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::resource('categories', 'CategoryAPIController');
+Route::post('add/categories', 'CategoryAPIController@add');
+
 
 Route::resource('recipes', 'RecipeAPIController');
