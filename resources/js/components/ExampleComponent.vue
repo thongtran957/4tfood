@@ -28,7 +28,6 @@
 <style>
     .big-box {
     overflow: scroll;
-    width:500px;
 }
 .grab-bing {
     cursor: -webkit-grab;

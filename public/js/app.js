@@ -75582,7 +75582,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.big-box {\n    overflow: scroll;\n    width:500px;\n}\n.grab-bing {\n    cursor: -webkit-grab;\n    cursor: -o-grab;\n    cursor: grab;\n}\n.oh {\n    overflow: hidden;\n}\n\n", ""]);
+exports.push([module.i, "\n.big-box {\n    overflow: scroll;\n}\n.grab-bing {\n    cursor: -webkit-grab;\n    cursor: -o-grab;\n    cursor: grab;\n}\n.oh {\n    overflow: hidden;\n}\n\n", ""]);
 
 // exports
 
