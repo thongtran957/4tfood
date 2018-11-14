@@ -43,8 +43,8 @@ class CategoryRepository extends BaseRepository
             }
         }
 
-        $listCategories = $listCategories->get();
-  
+        $listCategories = $listCategories->paginate(1);
+        
         return $listCategories;
 
     }

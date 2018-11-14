@@ -16,12 +16,13 @@
             ref="vuetable" 
             :fields="categoryFields" 
             :api-url="apiUrl"
+            :multi-sort="true"
             :css="css.table"
-            data-path="data"
+            data-path="data.data"
             :per-page="perPage"
-            pagination-path="data.data"
+            pagination-path="data"
             :append-params="moreParams"
-            @vuetable:pagination-data="onPaginationData"
+            @vuetable:pagination-data="onPaginationData"         
       >
         <template slot="actions" slot-scope="props">        
             <v-icon
@@ -245,9 +246,7 @@ export default {
         )
       },
       
-
       edit(item){
-        // console.log(item)
         axios.put('api/categories/'+item.id,item)
         .then(response => { 
           this.$refs.vuetable.reload()
@@ -281,9 +280,6 @@ export default {
         this.moreParams = {}
         Vue.nextTick( () => this.$refs.vuetable.refresh())
       },
-
-      
-
       
   },
 

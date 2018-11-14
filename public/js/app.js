@@ -75887,6 +75887,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -76048,7 +76049,6 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_6_vue_
     edit: function edit(item) {
       var _this4 = this;
 
-      // console.log(item)
       __WEBPACK_IMPORTED_MODULE_4_axios___default.a.put('api/categories/' + item.id, item).then(function (response) {
         _this4.$refs.vuetable.reload();
         _this4.dialog = false, _this4.snack = true, _this4.snackColor = 'success', _this4.snackText = 'Data edited';
@@ -80331,10 +80331,11 @@ var render = function() {
             attrs: {
               fields: _vm.categoryFields,
               "api-url": _vm.apiUrl,
+              "multi-sort": true,
               css: _vm.css.table,
-              "data-path": "data",
+              "data-path": "data.data",
               "per-page": _vm.perPage,
-              "pagination-path": "data.data",
+              "pagination-path": "data",
               "append-params": _vm.moreParams
             },
             on: { "vuetable:pagination-data": _vm.onPaginationData },
