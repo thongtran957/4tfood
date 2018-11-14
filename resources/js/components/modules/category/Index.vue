@@ -56,7 +56,7 @@
                 <v-layout wrap>
                   <v-flex xs12 sm12 md12 class="row">
                       <v-text-field v-model="item.name" label="Category" :rules="[rules.required]"></v-text-field>
-                      <span v-show="checkValid" style="color:red">{{error}}</span>
+                      <span v-show="checkValid" style="color:red"></span>
                   </v-flex>
                  
                 </v-layout>
@@ -158,7 +158,8 @@ export default {
             return pattern.test(value) || 'Invalid e-mail.'
           },
 
-        }
+        },
+        checkValid: false
 
     }
   },
