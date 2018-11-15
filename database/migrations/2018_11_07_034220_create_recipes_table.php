@@ -20,13 +20,14 @@ class CreateRecipesTable extends Migration
             $table->integer('cost');
             $table->integer('prep_time');
             $table->integer('cook_time');
-            $table->text('description');
-            $table->text('ingredient');
-            $table->text('instruction');
+            $table->text('description')->nullable();
+            $table->text('ingredient')->nullable();
+            $table->text('instruction')->nullable();
             $table->integer('active');
-            $table->string('suitable_for');
-            $table->string('link_img');
-            $table->string('link_youtube');
+            $table->string('suitable_for')->nullable();
+            $table->string('name_img')->nullable();
+            $table->string('link_img')->nullable();
+            $table->string('link_youtube')->nullable();
         });
     }
 

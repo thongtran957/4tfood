@@ -11,7 +11,7 @@
     <v-btn @click="showAddItem" color="primary" dark class="mb-2">Add</v-btn>
     </v-toolbar>
     <category-filter></category-filter>
-    <div v-dragscroll.x class="big-box grab-bing ">
+    <div v-dragscroll.x class="big-box grab-bing">
       <vuetable 
             ref="vuetable" 
             :fields="categoryFields" 
@@ -287,17 +287,4 @@ export default {
 </script>
 
 <style>
-    .big-box {
-        overflow: scroll;
-    }
-    .grab-bing {
-        cursor: -webkit-grab;
-        cursor: -moz-grab;
-        cursor: -o-grab;
-        cursor: grab;
-    }
-    .oh {
-        overflow: hidden;
-    }
-
 </style>

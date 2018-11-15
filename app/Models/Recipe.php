@@ -40,6 +40,7 @@ class Recipe extends Model
         'instruction',
         'active',
         'suitable_for',
+        'name_img',
         'link_img',
         'link_youtube'
     ];
@@ -60,6 +61,7 @@ class Recipe extends Model
         'instruction' => 'string',
         'active' => 'integer',
         'suitable_for' => 'string',
+        'name_img' => 'string',
         'link_img' => 'string',
         'link_youtube' => 'string'
     ];
@@ -72,6 +74,10 @@ class Recipe extends Model
     public static $rules = [
         
     ];
+
+    public function category(){
+        return $this->belongsTo('App\Models\Category','category_id','id');
+    }
 
     
 }

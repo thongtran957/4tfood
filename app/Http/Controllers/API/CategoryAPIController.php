@@ -140,10 +140,4 @@ class CategoryAPIController extends AppBaseController
         return $this->sendResponse($id, 'Category deleted successfully');
     }
 
-    public function add(Request $request){
-        $input = $request->all();
-        Category::insert([
-            'name' => $input['name'],
-        ]);
-    }
 }

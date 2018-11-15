@@ -41,4 +41,21 @@ class RecipeRepository extends BaseRepository
     {
         return Recipe::class;
     }
+
+    public function getRecipes(){
+        $listRecipes = $this->with('category')->get();
+        $listRecipes = $this->tranform($listRecipes);
+        return $listRecipes;
+    }
+
+    public function tranform($results){
+        foreach ($results as $key => $result) {
+            if($result->category != null){
+                $results[$key]->cname = $result->category->name;
+            }else{
+                $results[$key]->cname = '';
+            }          
+        }
+        return $results;
+    }
 }

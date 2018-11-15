@@ -24,3 +24,15 @@ a{
 body{
 	font-size:16px;
 }
+.big-box {
+    overflow: scroll;
+}
+.grab-bing {
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: -o-grab;
+    cursor: grab;
+}
+.oh {
+    overflow: auto;
+}

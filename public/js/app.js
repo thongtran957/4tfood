@@ -75781,7 +75781,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.big-box {\n    overflow: scroll;\n}\n.grab-bing {\n    cursor: -webkit-grab;\n    cursor: -o-grab;\n    cursor: grab;\n}\n.oh {\n    overflow: hidden;\n}\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -80718,7 +80718,7 @@ var render = function() {
               modifiers: { x: true }
             }
           ],
-          staticClass: "big-box grab-bing "
+          staticClass: "big-box grab-bing"
         },
         [
           _c("vuetable", {
@@ -81062,7 +81062,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -81073,18 +81073,132 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuetable_2_src_components_Vuetable__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuetable_2_src_components_Vuetable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuetable_2_src_components_Vuetable__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
 //
 
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuetable_2_src_components_Vuetable___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-  name: 'Index',
+    name: 'Index',
 
-  data: function data() {
-    return {};
-  }
+    data: function data() {
+        return {
+            apiUrl: 'api/recipes',
+            recipeFields: [{
+                name: 'id',
+                title: 'ID'
+            }, {
+                name: 'name',
+                title: 'Name'
+            }, {
+                name: 'cname',
+                title: 'Category'
+            }, {
+                name: 'cost',
+                title: 'Cost'
+            }, {
+                name: 'prep_time',
+                title: 'Prep Time'
+            }, {
+                name: 'cook_time',
+                title: 'Cook Time'
+            }, {
+                name: 'active',
+                title: 'Active'
+            }, {
+                name: '__slot:link_img',
+                title: 'Image'
+            }, {
+                name: '__slot:actions',
+                title: 'Actions'
+            }],
+
+            css: {
+                table: {
+                    tableClass: 'table table-bordered table-striped table-hover ',
+                    ascendingIcon: 'glyphicon glyphicon-chevron-up',
+                    descendingIcon: 'glyphicon glyphicon-chevron-down '
+                },
+                pagination: {
+                    infoClass: 'pull-left',
+                    wrapperClass: 'vuetable-pagination pull-left',
+                    activeClass: 'btn-primary',
+                    disabledClass: 'disabled',
+                    pageClass: 'btn btn-default',
+                    linkClass: 'btn btn-default',
+                    icons: {
+                        first: '',
+                        prev: '',
+                        next: '',
+                        last: ''
+                    }
+                },
+                paginationInfo: {
+                    infoClass: 'pagination-info'
+                },
+                icons: {
+                    first: 'glyphicon glyphicon-step-backward',
+                    prev: 'glyphicon glyphicon-chevron-left',
+                    next: 'glyphicon glyphicon-chevron-right',
+                    last: 'glyphicon glyphicon-step-forward'
+                }
+            }
+
+        };
+    },
+
+    components: {
+        Vuetable: __WEBPACK_IMPORTED_MODULE_1_vuetable_2_src_components_Vuetable___default.a
+    }
 });
 
 /***/ }),
@@ -81095,7 +81209,98 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("abc")])
+  return _c(
+    "div",
+    [
+      _c(
+        "v-toolbar",
+        { attrs: { flat: "", color: "white" } },
+        [
+          _c("v-toolbar-title", [_vm._v("Recipe Table")]),
+          _vm._v(" "),
+          _c("v-divider", {
+            staticClass: "mx-2",
+            attrs: { inset: "", vertical: "" }
+          }),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              staticClass: "mb-2",
+              attrs: { color: "primary", dark: "" },
+              on: { click: function($event) {} }
+            },
+            [_vm._v("Add")]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "dragscroll",
+              rawName: "v-dragscroll.x",
+              modifiers: { x: true }
+            }
+          ],
+          staticClass: "big-box grab-bing "
+        },
+        [
+          _c("vuetable", {
+            ref: "vuetable",
+            attrs: {
+              fields: _vm.recipeFields,
+              "api-url": _vm.apiUrl,
+              css: _vm.css.table,
+              "data-path": "data"
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "actions",
+                fn: function(props) {
+                  return [
+                    _c("v-icon", { attrs: { color: "blue" } }, [
+                      _vm._v(
+                        "\n\t\t              visibility\t\n\t\t            "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("v-icon", { attrs: { color: "blue" } }, [
+                      _vm._v("\n\t\t              delete\n\t\t            ")
+                    ]),
+                    _vm._v(" "),
+                    _c("v-icon", { attrs: { color: "blue" } }, [
+                      _vm._v("\n\t\t              edit\n\t\t            ")
+                    ])
+                  ]
+                }
+              },
+              {
+                key: "link_img",
+                fn: function(props) {
+                  return [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          "https://doc-0k-8k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/kbpbp944ckieoc3jo5ga1bufesgourem/1542304800000/05148497586719943542/*/11o8wslc5mvn5DDeeX645gog6e3bajSQL"
+                      }
+                    })
+                  ]
+                }
+              }
+            ])
+          })
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

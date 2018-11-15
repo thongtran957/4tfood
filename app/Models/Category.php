@@ -42,5 +42,9 @@ class Category extends Model
         
     ];
 
+    public function recipe(){
+        return $this->hasMany('App\Models\Recipe','id','category_id');
+    }
+
     
 }

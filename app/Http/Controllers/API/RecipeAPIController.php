@@ -38,8 +38,7 @@ class RecipeAPIController extends AppBaseController
     {
         $this->recipeRepository->pushCriteria(new RequestCriteria($request));
         $this->recipeRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $recipes = $this->recipeRepository->all();
-
+        $recipes = $this->recipeRepository->getRecipes();          
         return $this->sendResponse($recipes->toArray(), 'Recipes retrieved successfully');
     }
 
