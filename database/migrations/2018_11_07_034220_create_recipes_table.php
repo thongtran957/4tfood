@@ -25,9 +25,9 @@ class CreateRecipesTable extends Migration
             $table->text('instruction')->nullable();
             $table->integer('active');
             $table->string('suitable_for')->nullable();
-            $table->string('name_img')->nullable();
-            $table->string('link_img')->nullable();
-            $table->string('link_youtube')->nullable();
+            $table->text('name_img')->nullable();
+            $table->text('link_img')->nullable();
+            $table->text('link_youtube')->nullable();
         });
     }
 

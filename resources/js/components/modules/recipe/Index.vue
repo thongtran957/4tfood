@@ -33,8 +33,8 @@
 		            </v-icon>
 		        </template>
 		        <template slot="link_img" slot-scope="props">  
-		    		<!-- <img v-bind:src="props.rowData.link_img"> -->
-		    		<img src="https://doc-0k-8k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/kbpbp944ckieoc3jo5ga1bufesgourem/1542304800000/05148497586719943542/*/11o8wslc5mvn5DDeeX645gog6e3bajSQL">
+		    		<img v-bind:src="props.rowData.link_img">
+		    		<!-- <span>{{props.rowData.link_img}}</span> -->
 		        </template>
 		    </vuetable>
 		    

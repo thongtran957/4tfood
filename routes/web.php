@@ -50,3 +50,7 @@ Route::get('delete', function() {
     // dd($b);
     
 });
+Route::get('test', function() {
+   
+    
+});
