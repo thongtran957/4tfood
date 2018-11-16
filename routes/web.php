@@ -18,9 +18,9 @@ Route::get('/', function () {
 Route::get('put', function () {
 	// Storage::cloud()->put('test.txt', 'Hello World');
  //    return 'File was saved to Google Drive';
-	$filePath = '/home/thongtran/Pictures/images (1).jpeg';
+	$filePath = '/home/thongtran/Pictures/download.jpeg';
     $fileData = File::get($filePath);
-    Storage::cloud()->put('image', $fileData);
+    Storage::cloud()->put('image1', $fileData);
     return 'File was saved to Google Drive';
 });
 
@@ -32,7 +32,7 @@ Route::get('list', function() {
 
 });
 Route::get('delete', function() {
-    $filename = 'image';
+    $filename = 'image1';
     // Tìm file và sử dụng ID (path) của nó để xóa
     $dir = '/';
     $recursive = false; //  Có lấy file trong các thư mục con không?
