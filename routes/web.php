@@ -51,6 +51,28 @@ Route::get('delete', function() {
     
 });
 Route::get('test', function() {
-   
+    $a = [2, 3,3];
+    $array = [];
+    foreach ($a as $key1 => $value1) {
+        $temp = $value1;
+        $b = array_slice($a,$key1+1);
+        foreach ($b as $key2 => $value2) {
+            if($value2 == $temp){
+                array_push($array,$key2 +$key1+1);
+            }
+        }
+    }
+    if(empty($array)){
+        return -1;
+    }else{
+        $min = $array[0];
+        foreach ($array as $key => $value) {
+            if($value < $min){
+                $min = $value;
+            }
+        } 
+        return $a[$min];
+    }
+    
     
 });

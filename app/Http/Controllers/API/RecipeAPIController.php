@@ -11,6 +11,7 @@ use App\Http\Controllers\AppBaseController;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Http\Controllers\API\File;
 
 /**
  * Class RecipeController
@@ -124,5 +125,18 @@ class RecipeAPIController extends AppBaseController
         $recipe->delete();
 
         return $this->sendResponse($id, 'Recipe deleted successfully');
+    }
+
+    public function addRecipe(Request $request){
+        $image = $request->file('file_name');
+        $a = $image->getClientOriginalName();
+        // dd($a);
+       
+        $filePath = $a;
+        $fileData = \File::get($filePath);
+        \Storage::cloud()->put('image1asd-------------------------123456
+            ', $fileData);
+        return 'File was saved to Google Drive';
+
     }
 }

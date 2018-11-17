@@ -80852,7 +80852,7 @@ var render = function() {
                             [
                               _c("v-text-field", {
                                 attrs: {
-                                  label: "Category",
+                                  label: "Name",
                                   rules: [_vm.rules.required]
                                 },
                                 model: {
@@ -81062,7 +81062,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -81077,6 +81077,108 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuetable_2_src_components_Vuetable__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuetable_2_src_components_Vuetable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuetable_2_src_components_Vuetable__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -81152,7 +81254,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuet
                 name: 'cook_time',
                 title: 'Cook Time'
             }, {
-                name: 'active',
+                name: '__slot:active',
                 title: 'Active'
             }, {
                 name: '__slot:link_img',
@@ -81191,13 +81293,55 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuet
                     next: 'glyphicon glyphicon-chevron-right',
                     last: 'glyphicon glyphicon-step-forward'
                 }
-            }
+            },
 
+            dialog: false,
+            item: {
+                name: '',
+                cname: '',
+                cost: '',
+                prep_time: '',
+                cook_time: '',
+                description: '',
+                ingredient: '',
+                instruction: '',
+                active: '',
+                suitable_for: '',
+                name_img: '',
+                link_img: '',
+                link_youtube: ''
+            }
         };
     },
 
     components: {
         Vuetable: __WEBPACK_IMPORTED_MODULE_1_vuetable_2_src_components_Vuetable___default.a
+    },
+
+    methods: {
+        showAddItem: function showAddItem() {
+            this.dialog = true;
+        },
+        close: function close() {
+            this.dialog = false;
+        },
+        previewFiles: function previewFiles() {
+            this.item.name_img = this.$refs.myFiles.files[0];
+        },
+        save: function save(item) {
+            var formData = new FormData();
+            formData.append('file_name', this.item.name_img);
+
+            axios.post('api/add/recipes', formData).then(function (response) {
+                // this.$refs.vuetable.reload()
+                // this.dialog = false,
+                // this.snack = true,
+                // this.snackColor = 'success',
+                // this.snackText = 'Data saved'
+            }).catch(function (error) {
+                return console.log(error);
+            });
+        }
     }
 });
 
@@ -81230,7 +81374,7 @@ var render = function() {
             {
               staticClass: "mb-2",
               attrs: { color: "primary", dark: "" },
-              on: { click: function($event) {} }
+              on: { click: _vm.showAddItem }
             },
             [_vm._v("Add")]
           )
@@ -81283,11 +81427,365 @@ var render = function() {
               {
                 key: "link_img",
                 fn: function(props) {
-                  return [_c("img", { attrs: { src: props.rowData.link_img } })]
+                  return [
+                    _c(
+                      "v-avatar",
+                      {
+                        attrs: {
+                          tile: true,
+                          color: "grey lighten-4",
+                          size: 120
+                        }
+                      },
+                      [_c("img", { attrs: { src: props.rowData.link_img } })]
+                    )
+                  ]
+                }
+              },
+              {
+                key: "active",
+                fn: function(props) {
+                  return [
+                    _c("v-checkbox", {
+                      attrs: { color: "primary" },
+                      model: {
+                        value: props.rowData.active,
+                        callback: function($$v) {
+                          _vm.$set(props.rowData, "active", $$v)
+                        },
+                        expression: "props.rowData.active"
+                      }
+                    })
+                  ]
                 }
               }
             ])
           })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: {
+            fullscreen: "",
+            "hide-overlay": "",
+            transition: "dialog-bottom-transition"
+          },
+          on: {
+            keydown: function($event) {
+              if (
+                !("button" in $event) &&
+                _vm._k($event.keyCode, "esc", 27, $event.key, "Escape")
+              ) {
+                return null
+              }
+              return _vm.close($event)
+            }
+          },
+          model: {
+            value: _vm.dialog,
+            callback: function($$v) {
+              _vm.dialog = $$v
+            },
+            expression: "dialog"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c(
+                "v-toolbar",
+                { attrs: { dark: "", color: "primary" } },
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { icon: "", dark: "" },
+                      nativeOn: {
+                        click: function($event) {
+                          return _vm.close($event)
+                        }
+                      }
+                    },
+                    [_c("v-icon", [_vm._v("close")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("v-toolbar-title", [_vm._v("Add Recipe")]),
+                  _vm._v(" "),
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-toolbar-items",
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { dark: "", flat: "" },
+                          nativeOn: {
+                            click: function($event) {
+                              _vm.save(_vm.item)
+                            }
+                          }
+                        },
+                        [_vm._v("Save")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-container",
+                    { attrs: { "grid-list-md": "" } },
+                    [
+                      _c(
+                        "v-layout",
+                        { attrs: { wrap: "" } },
+                        [
+                          _c(
+                            "v-flex",
+                            { staticClass: "row", attrs: { xs12: "" } },
+                            [
+                              _c("v-flex", { attrs: { xs3: "" } }, [
+                                _c("input", {
+                                  ref: "myFiles",
+                                  attrs: { type: "file", id: "file" },
+                                  on: { change: _vm.previewFiles }
+                                })
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { staticClass: "row", attrs: { xs12: "" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs6: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: { label: "Name" },
+                                    model: {
+                                      value: _vm.item.name,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "name", $$v)
+                                      },
+                                      expression: "item.name"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs3: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: { label: "Category" },
+                                    model: {
+                                      value: _vm.item.cname,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "cname", $$v)
+                                      },
+                                      expression: "item.cname"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs3: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: { label: "Suitable For" },
+                                    model: {
+                                      value: _vm.item.suitable_for,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "suitable_for", $$v)
+                                      },
+                                      expression: "item.suitable_for"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { staticClass: "row", attrs: { xs12: "" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs3: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: { label: "Cost (VND)" },
+                                    model: {
+                                      value: _vm.item.cost,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "cost", $$v)
+                                      },
+                                      expression: "item.cost"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs3: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: { label: "Prep Time (minute)" },
+                                    model: {
+                                      value: _vm.item.prep_time,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "prep_time", $$v)
+                                      },
+                                      expression: "item.prep_time"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs3: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: { label: "Cook Time (minute)" },
+                                    model: {
+                                      value: _vm.item.cook_time,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "cook_time", $$v)
+                                      },
+                                      expression: "item.cook_time"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs3: "" } },
+                                [
+                                  _c("v-checkbox", {
+                                    attrs: {
+                                      color: "primary",
+                                      label: "Active"
+                                    },
+                                    model: {
+                                      value: _vm.item.active,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "active", $$v)
+                                      },
+                                      expression: "item.active"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { staticClass: "row", attrs: { xs12: "" } },
+                            [
+                              _c("v-textarea", {
+                                attrs: {
+                                  outline: "",
+                                  label: "Description",
+                                  color: "orange"
+                                },
+                                model: {
+                                  value: _vm.item.description,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.item, "description", $$v)
+                                  },
+                                  expression: "item.description"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { staticClass: "row", attrs: { xs12: "" } },
+                            [
+                              _c("v-textarea", {
+                                attrs: {
+                                  outline: "",
+                                  label: "Ingredient",
+                                  color: "green"
+                                },
+                                model: {
+                                  value: _vm.item.ingredient,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.item, "ingredient", $$v)
+                                  },
+                                  expression: "item.ingredient"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { staticClass: "row", attrs: { xs12: "" } },
+                            [
+                              _c("v-textarea", {
+                                attrs: {
+                                  outline: "",
+                                  label: "Instruction",
+                                  color: "pink"
+                                },
+                                model: {
+                                  value: _vm.item.instruction,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.item, "instruction", $$v)
+                                  },
+                                  expression: "item.instruction"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
         ],
         1
       )

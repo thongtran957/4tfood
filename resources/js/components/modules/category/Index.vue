@@ -55,11 +55,11 @@
             <span class="headline">{{ check ? 'Edit Category' : 'Add Category'}}</span>
             <v-spacer></v-spacer>
           </v-card-title>
-            <v-card-text>
+          <v-card-text>
               <v-container grid-list-md>
                 <v-layout wrap>
                   <v-flex xs12 sm12 md12 class="row">
-                      <v-text-field v-model="item.name" label="Category" :rules="[rules.required]"></v-text-field>
+                      <v-text-field v-model="item.name" label="Name" :rules="[rules.required]"></v-text-field>
                       <span v-show="checkValid" style="color:red"></span>
                   </v-flex>
                  
