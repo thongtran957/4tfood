@@ -42,8 +42,8 @@ Route::get('delete', function() {
         ->where('filename', '=', pathinfo($filename, PATHINFO_FILENAME))
         ->where('extension', '=', pathinfo($filename, PATHINFO_EXTENSION))
         ->first(); // có thể bị trùng tên file với nhau!
-    // Storage::cloud()->delete($file['path']);
-    dd($file);
+    Storage::cloud()->delete($file['path']);
+
     // return 'File was deleted from Google Drive';
     // $b = '';
     // $b = bcrypt('a');
@@ -51,28 +51,28 @@ Route::get('delete', function() {
     
 });
 Route::get('test', function() {
-    $a = [2, 3,3];
-    $array = [];
-    foreach ($a as $key1 => $value1) {
-        $temp = $value1;
-        $b = array_slice($a,$key1+1);
-        foreach ($b as $key2 => $value2) {
-            if($value2 == $temp){
-                array_push($array,$key2 +$key1+1);
-            }
-        }
-    }
-    if(empty($array)){
-        return -1;
-    }else{
-        $min = $array[0];
-        foreach ($array as $key => $value) {
-            if($value < $min){
-                $min = $value;
-            }
-        } 
-        return $a[$min];
-    }
-    
+    // $a = [2, 3,3];
+    // $array = [];
+    // foreach ($a as $key1 => $value1) {
+    //     $temp = $value1;
+    //     $b = array_slice($a,$key1+1);
+    //     foreach ($b as $key2 => $value2) {
+    //         if($value2 == $temp){
+    //             array_push($array,$key2 +$key1+1);
+    //         }
+    //     }
+    // }
+    // if(empty($array)){
+    //     return -1;
+    // }else{
+    //     $min = $array[0];
+    //     foreach ($array as $key => $value) {
+    //         if($value < $min){
+    //             $min = $value;
+    //         }
+    //     } 
+    //     return $a[$min];
+    // }
+    unlink('/home/thongtran/thong/web_app/4TFood/public/files/Screenshot from 2018-10-27 22-20-10.png.1542601311');
     
 });

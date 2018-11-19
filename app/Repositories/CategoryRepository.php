@@ -42,10 +42,8 @@ class CategoryRepository extends BaseRepository
                 $listCategories = $listCategories->where('name','like','%'.$filter->name.'%');
             }
         }
-
         $listCategories = $listCategories->paginate($perPage);
 
         return $listCategories;
-
     }
 }

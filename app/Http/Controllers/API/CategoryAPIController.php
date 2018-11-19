@@ -140,4 +140,10 @@ class CategoryAPIController extends AppBaseController
         return $this->sendResponse($id, 'Category deleted successfully');
     }
 
+    public function getList(){
+        $listCategory = Category::select('name')->get()->toArray();
+        return $listCategory;
+
+    }
+
 }

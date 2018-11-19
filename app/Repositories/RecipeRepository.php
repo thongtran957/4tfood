@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Recipe;
+use App\Models\Category;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
@@ -42,9 +43,34 @@ class RecipeRepository extends BaseRepository
         return Recipe::class;
     }
 
-    public function getRecipes(){
-        $listRecipes = $this->with('category')->get();
-        $listRecipes = $this->tranform($listRecipes);
+    public function getRecipes($sortBy, $filter, $perPage){
+
+        $listRecipes = Recipe::join('categories', 'recipes.category_id', '=', 'categories.id')->select('categories.name as cname','recipes.*');
+
+        if($sortBy[0] =='id')
+            $listRecipes = $listRecipes->orderBy('id', $sortBy[1]);
+        if($sortBy[0] =='cost')
+            $listRecipes = $listRecipes->orderBy('cost', $sortBy[1]);
+        if($sortBy[0] =='prep_time')
+            $listRecipes = $listRecipes->orderBy('prep_time', $sortBy[1]);
+        if($sortBy[0] =='cook_time')
+            $listRecipes = $listRecipes->orderBy('cook_time', $sortBy[1]);
+
+        if(!empty($filter)){
+            if($filter && $filter->cname){
+                $category_id = Category::select('id')->where('name',$filter->cname)->first()->toArray();
+                $category_id = $category_id['id']; 
+
+                $listRecipes = $listRecipes->where('category_id', $category_id);              
+            }
+
+            if($filter && $filter->name){
+                $listRecipes = $listRecipes->where('recipes.name', 'like', '%'.$filter->name.'%');              
+            }
+        }
+
+        $listRecipes = $listRecipes->paginate($perPage);
+
         return $listRecipes;
     }
 
@@ -57,5 +83,66 @@ class RecipeRepository extends BaseRepository
             }          
         }
         return $results;
+    }
+
+    public function add($name_img, $link_img, $input){
+        $category_id = Category::select('id')->where('name',$input['cname'])->first()->toArray();
+        $category_id = $category_id['id'];
+        
+        if($input['active'] != null){
+            $active = 1;
+        }else{
+            $active = 0;
+        }
+
+        $array = [
+            'name' => $input['name'],
+            'category_id' => $category_id,
+            'cost' => $input['cost'],
+            'prep_time' => $input['prep_time'],
+            'cook_time' => $input['cook_time'],
+            'description' => $input['description'],
+            'ingredient' => $input['ingredient'],
+            'instruction' => $input['instruction'],
+            'active' => $active,
+            'suitable_for' => $input['suitable_for'],
+            'name_img' => $name_img,
+            'link_img' => $link_img,
+
+        ];
+
+        $result = Recipe::create($array);
+        return $result;
+    }
+
+    public function edit($name_img, $link_img, $input){
+        $category_id = Category::select('id')->where('name',$input['cname'])->first()->toArray();
+        $category_id = $category_id['id'];
+        
+        if($input['active'] != null){
+            $active = 1;
+        }else{
+            $active = 0;
+        }
+
+        $array = [
+            'name' => $input['name'],
+            'category_id' => $category_id,
+            'cost' => $input['cost'],
+            'prep_time' => $input['prep_time'],
+            'cook_time' => $input['cook_time'],
+            'description' => $input['description'],
+            'ingredient' => $input['ingredient'],
+            'instruction' => $input['instruction'],
+            'active' => $active,
+            'suitable_for' => $input['suitable_for'],
+            'name_img' => $name_img,
+            'link_img' => $link_img,
+
+        ];
+
+        $result = Recipe::where('id',$input['id'])->update($array);
+        return $result;
+
     }
 }

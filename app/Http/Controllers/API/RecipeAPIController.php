@@ -39,7 +39,20 @@ class RecipeAPIController extends AppBaseController
     {
         $this->recipeRepository->pushCriteria(new RequestCriteria($request));
         $this->recipeRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $recipes = $this->recipeRepository->getRecipes();          
+
+        $perPage = $request->input('per_page',10);
+        if($request->has('sort') && $request->input('sort'))
+            $sortBy = explode('|', $request->input('sort'));
+        else
+            $sortBy = explode('|', 'id|desc');
+
+        $filter = '';
+        if($request->has('filter') && $request->input('filter'))
+            $filter = json_decode($request->input('filter'));
+       
+
+        $recipes = $this->recipeRepository->getRecipes($sortBy, $filter, $perPage); 
+
         return $this->sendResponse($recipes->toArray(), 'Recipes retrieved successfully');
     }
 
@@ -116,6 +129,22 @@ class RecipeAPIController extends AppBaseController
     public function destroy($id)
     {
         /** @var Recipe $recipe */
+        $fileOld = Recipe::select('link_img','name_img')->where('id', $id)->get()->toArray();
+
+        $nameOld = $fileOld[0]['name_img'];
+        $linkOld = $fileOld[0]['link_img'];
+
+
+        $dir = '/';
+        $recursive = false; 
+        $contents = collect(\Storage::cloud()->listContents($dir, $recursive));
+        $link_img = $contents
+            ->where('type', '=', 'file')
+            ->where('filename', '=', pathinfo($nameOld, PATHINFO_FILENAME))
+            ->where('extension', '=', pathinfo($nameOld, PATHINFO_EXTENSION))
+            ->first();
+        \Storage::cloud()->delete($link_img['path']);
+
         $recipe = $this->recipeRepository->findWithoutFail($id);
 
         if (empty($recipe)) {
@@ -128,15 +157,120 @@ class RecipeAPIController extends AppBaseController
     }
 
     public function addRecipe(Request $request){
-        $image = $request->file('file_name');
-        $a = $image->getClientOriginalName();
-        // dd($a);
-       
-        $filePath = $a;
-        $fileData = \File::get($filePath);
-        \Storage::cloud()->put('image1asd-------------------------123456
-            ', $fileData);
-        return 'File was saved to Google Drive';
+        $input = $request->all();
+        if($request->file_name != "undefined"){
+            $file = $request->file_name;
+         
+            if(!empty($file)) {
+                $name = $file->getClientOriginalName();
+                $arrayName = explode('.', $name);
+                $filename = $arrayName[0].'-'.time().'.'.$arrayName[1];
+              
+                $pathPublic = public_path().'/files/';
+                if(\File::exists($pathPublic.$filename)){
+                    unlink($pathPublic.$filename);
+                }
+                if(!\File::exists($pathPublic)) {
+                    \File::makeDirectory($pathPublic, $mode = 0777, true, true);
+                }
+                $file->move($pathPublic, $filename);
+                $fileData = \File::get($pathPublic.$filename);
+                \Storage::cloud()->put($filename, $fileData);
+               
+                $dir = '/';
+                $recursive = false; 
+                $contents = collect(\Storage::cloud()->listContents($dir, $recursive));
+                $link_img = $contents
+                    ->where('type', '=', 'file')
+                    ->where('filename', '=', pathinfo($filename, PATHINFO_FILENAME))
+                    ->where('extension', '=', pathinfo($filename, PATHINFO_EXTENSION))
+                    ->first(); 
 
+               
+                $link_img = 'https://drive.google.com/uc?id='.$link_img['path'];
+                $name_img = $filename;
+
+                unlink($pathPublic.$filename);
+
+                $result = $this->recipeRepository->add($name_img, $link_img, $input);
+
+
+                return $this->sendResponse($result->toArray(), 'Recipe saved successfully');
+                
+            }
+        }
+        
     }
+
+    public function editRecipe(Request $request){
+
+        $input = $request->all();
+        $fileOld = Recipe::select('link_img','name_img')->where('id', $input['id'])->get()->toArray();
+
+        $nameOld = $fileOld[0]['name_img'];
+        $linkOld = $fileOld[0]['link_img'];
+
+
+        $input = $request->all();
+        if($request->file_name != "undefined"){
+            $file = $request->file_name;
+         
+            if(!empty($file)) {
+                $fileOldName = Recipe::select('link_img')->where('id', $input['id'])->get()->toArray();
+
+                $name = $file->getClientOriginalName();
+                $arrayName = explode('.', $name);
+                $filename = $arrayName[0].'-'.time().'.'.$arrayName[1];
+              
+                $pathPublic = public_path().'/files/';
+                if(\File::exists($pathPublic.$filename)){
+                    unlink($pathPublic.$filename);
+                }
+                if(!\File::exists($pathPublic)) {
+                    \File::makeDirectory($pathPublic, $mode = 0777, true, true);
+                }
+                $file->move($pathPublic, $filename);
+                $fileData = \File::get($pathPublic.$filename);
+                \Storage::cloud()->put($filename, $fileData);
+               
+
+                $dir = '/';
+                $recursive = false; 
+                $contents = collect(\Storage::cloud()->listContents($dir, $recursive));
+                $link_img = $contents
+                    ->where('type', '=', 'file')
+                    ->where('filename', '=', pathinfo($filename, PATHINFO_FILENAME))
+                    ->where('extension', '=', pathinfo($filename, PATHINFO_EXTENSION))
+                    ->first(); 
+
+               
+                $link_img = 'https://drive.google.com/uc?id='.$link_img['path'];
+                $name_img = $filename;
+
+                unlink($pathPublic.$filename);
+
+                $fileDelete = $contents
+                    ->where('type', '=', 'file')
+                    ->where('filename', '=', pathinfo($nameOld, PATHINFO_FILENAME))
+                    ->where('extension', '=', pathinfo($nameOld, PATHINFO_EXTENSION))
+                    ->first(); 
+                \Storage::cloud()->delete($fileDelete['path']);
+
+                $result = $this->recipeRepository->edit($name_img, $link_img, $input);
+
+                return $this->sendResponse($result, 'Recipe saved successfully');
+
+              
+                
+            }
+        }else{
+            $link_img = $linkOld;
+            $name_img = $nameOld;
+            $result = $this->recipeRepository->edit($name_img, $link_img, $input);
+
+            return $this->sendResponse($result, 'Recipe saved successfully');
+        }
+    
+    }
+
 }

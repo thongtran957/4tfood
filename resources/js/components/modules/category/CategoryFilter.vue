@@ -34,7 +34,8 @@ export default {
 		resetFilter () {
 		    this.filter.name = '',
 		    this.$events.fire('filter-reset')
-		}
+		},
+		
 	}
 }
 </script>
