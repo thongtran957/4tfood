@@ -62,7 +62,7 @@
 		            <v-btn icon dark  @click.native="close">
 		              <v-icon>close</v-icon>
 		            </v-btn>
-		            <v-toolbar-title>{{ check ? 'Edit Recipe' : 'Add Recipey'}}</v-toolbar-title>
+		            <v-toolbar-title>{{ check ? 'Edit Recipe' : 'Add Recipe'}}</v-toolbar-title>
 		            <v-spacer></v-spacer>
 		            <v-toolbar-items>
 		              <v-btn dark flat @click.native="save(item)" :disabled="!item.name || !item.cname || !item.suitable_for || !item.cost || !item.prep_time || !item.cook_time || !item.description || !item.ingredient || !item.instruction">Save</v-btn>

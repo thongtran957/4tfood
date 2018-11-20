@@ -82038,7 +82038,7 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("v-toolbar-title", [
-                    _vm._v(_vm._s(_vm.check ? "Edit Recipe" : "Add Recipey"))
+                    _vm._v(_vm._s(_vm.check ? "Edit Recipe" : "Add Recipe"))
                   ]),
                   _vm._v(" "),
                   _c("v-spacer"),
