@@ -374,7 +374,6 @@ export default {
     previewFiles(){
       this.item.name_img = this.$refs.myFiles.files[0]
       this.preview_url =  URL.createObjectURL(this.$refs.myFiles.files[0])
-      console.log(this.preview_url)
     },
 
   	add(item){
