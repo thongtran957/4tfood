@@ -134,7 +134,6 @@ class RecipeAPIController extends AppBaseController
         $nameOld = $fileOld[0]['name_img'];
         $linkOld = $fileOld[0]['link_img'];
 
-
         $dir = '/';
         $recursive = false; 
         $contents = collect(\Storage::cloud()->listContents($dir, $recursive));
@@ -144,6 +143,8 @@ class RecipeAPIController extends AppBaseController
             ->where('extension', '=', pathinfo($nameOld, PATHINFO_EXTENSION))
             ->first();
         \Storage::cloud()->delete($link_img['path']);
+
+        unlink($pathPublic.$filename);
 
         $recipe = $this->recipeRepository->findWithoutFail($id);
 
@@ -260,8 +261,6 @@ class RecipeAPIController extends AppBaseController
 
                 return $this->sendResponse($result, 'Recipe saved successfully');
 
-              
-                
             }
         }else{
             $link_img = $linkOld;

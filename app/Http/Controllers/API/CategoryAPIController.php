@@ -11,7 +11,7 @@ use App\Http\Controllers\AppBaseController;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use App\Models\Recipe;
 /**
  * Class CategoryController
  * @package App\Http\Controllers\API
@@ -129,6 +129,21 @@ class CategoryAPIController extends AppBaseController
     public function destroy($id)
     {
         /** @var Category $category */
+        $nameImgs = Recipe::select('name_img')->where('category_id', $id)->get();
+        foreach ($nameImgs as $key => $nameImg) {
+            $dir = '/';
+            $recursive = false; 
+            $contents = collect(\Storage::cloud()->listContents($dir, $recursive));
+            $link_img = $contents
+                ->where('type', '=', 'file')
+                ->where('filename', '=', pathinfo($nameImg, PATHINFO_FILENAME))
+                ->where('extension', '=', pathinfo($nameImg, PATHINFO_EXTENSION))
+                ->first();
+            \Storage::cloud()->delete($link_img['path']);
+        }
+
+        Recipe::where('category_id',$id)->delete();
+
         $category = $this->categoryRepository->findWithoutFail($id);
 
         if (empty($category)) {

@@ -65,7 +65,7 @@
 		            <v-toolbar-title>{{ check ? 'Edit Recipe' : 'Add Recipey'}}</v-toolbar-title>
 		            <v-spacer></v-spacer>
 		            <v-toolbar-items>
-		              <v-btn dark flat @click.native="save(item)">Save</v-btn>
+		              <v-btn dark flat @click.native="save(item)" :disabled="!item.name || !item.cname || !item.suitable_for || !item.cost || !item.prep_time || !item.cook_time || !item.description || !item.ingredient || !item.instruction">Save</v-btn>
 	            	</v-toolbar-items>
           		</v-toolbar>
           		<v-card-text>
@@ -73,30 +73,31 @@
 		                <v-layout wrap>
 		                  	<v-flex xs12 class="row">
 			                    <v-flex xs6>
-			                       <v-text-field  label="Name" v-model="item.name"></v-text-field>
+			                       <v-text-field  label="Name" v-model="item.name" :rules="[rules.required]"></v-text-field>
 			                    </v-flex>
 			                    <v-flex xs3>
-			                       <v-select  label="Category" v-model="item.cname"  :items="listCategory"></v-select>
+			                       <v-select  label="Category" v-model="item.cname"  :items="listCategory" :rules="[rules.required]"></v-select>
 			                    </v-flex>
 			                    <v-flex xs3>
-			                        <v-text-field  label="Suitable For" v-model="item.suitable_for"></v-text-field>
+			                        <v-text-field  label="Suitable For" v-model="item.suitable_for" :rules="[rules.required]"></v-text-field>
 			                    </v-flex>
 		                  	</v-flex>
 		                  	<v-flex xs12 class="row">
 			                    <v-flex xs3>
-			                       <v-text-field  label="Cost (VND)" v-model="item.cost"></v-text-field>
+			                       <v-text-field  label="Cost (VND)" v-model="item.cost" :rules="[rules.required, rules.number]"></v-text-field>
 			                    </v-flex>
 			                    <v-flex xs3>
-			                       <v-text-field  label="Prep Time (minute)" v-model="item.prep_time"></v-text-field>
+			                       <v-text-field  label="Prep Time (minute)" v-model="item.prep_time" :rules="[rules.required, rules.number]"></v-text-field>
 			                    </v-flex>
 			                    <v-flex xs3>
-			                       <v-text-field  label="Cook Time (minute)" v-model="item.cook_time"></v-text-field>
+			                       <v-text-field  label="Cook Time (minute)" v-model="item.cook_time" :rules="[rules.required, rules.number]"></v-text-field>
 			                    </v-flex>
 			                    <v-flex xs3>
 			                       	<v-checkbox			          
 							            color="primary"
 							            label="Active"
-							            v-model="item.active">			                        
+							            v-model="item.active" 
+                          >			                        
 							        </v-checkbox>
 			                    </v-flex>
 		                  	</v-flex> 
@@ -104,42 +105,47 @@
 		                  		<v-flex xs1>
 			                      	<label>Image</label>
 			                    </v-flex>
-			                    <v-flex xs3>
-			                    	<input type="file" id="file" ref="myFiles" @change="previewFiles" >
-			                	</v-flex>
-				                	<v-flex xs3 >
-				                    	<img v-bind:src="item.link_img" class="size-img" v-if="item.link_img != '' ">
-				                	</v-flex>
-			                	<!-- <v-flex xs3>
-			                    	<img v-bind:src="item.link_img" class="size-img">
-			                	</v-flex> -->
-			                	
+			                    <v-flex xs5>
+			                    	<input type="file" id="file" ref="myFiles" @change="previewFiles" :rules="[rules.required]">
+			                	  </v-flex>
+                          <v-flex xs3>
+                              <img v-if="preview_url" v-bind:src="preview_url"  class="size-img"/>
+                          </v-flex>
+  			                	<v-flex xs3 >
+  			                    	<img v-bind:src="item.link_img" class="size-img" v-if="item.link_img != '' ">
+  			                	</v-flex>
 		                    </v-flex> 
 		                  	<v-flex xs12 class="row">
 		                  		<v-textarea
-						            outline
-						            label="Description"
-						            v-model = "item.description"
-						        ></v-textarea>
+  						            outline
+  						            label="Description"
+  						            v-model = "item.description"
+  						            ></v-textarea>
 		                  	</v-flex>
 		                  	<v-flex xs12 class="row">
 		                    	<v-textarea
-						            outline
-						            label="Ingredient"
-						            v-model = "item.ingredient"
-					        	></v-textarea>
-		                  	</v-flex>
+  						            outline
+  						            label="Ingredient"
+  						            v-model = "item.ingredient"
+					        	      :rules="[rules.required]"></v-textarea>
+		                  	 </v-flex>
 		                  	<v-flex xs12 class="row">
-		                		<v-textarea
-						            outline
-						            label="Instruction"
-						            v-model = "item.instruction"
-					        	></v-textarea>
+  		                		<v-textarea
+      						            outline
+      						            label="Instruction"
+      						            v-model = "item.instruction"
+      					        	    :rules="[rules.required]"></v-textarea>
 		                  	</v-flex>
 		                </v-layout>
 		            </v-container>
 		        </v-card-text>
-        	</v-card>
+            <v-toolbar dark color="primary">
+              <v-spacer></v-spacer>
+              <v-toolbar-items>
+                <v-btn dark flat @click.native="save(item)" :disabled="!item.name || !item.cname || !item.suitable_for || !item.cost || !item.prep_time || !item.cook_time || !item.description || !item.ingredient || !item.instruction">Save</v-btn>
+              </v-toolbar-items>
+            </v-toolbar>
+        	 </v-card>
 	    </v-dialog>  
     </div>
 </template>
@@ -271,8 +277,14 @@ export default {
             const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             return pattern.test(value) || 'Invalid e-mail.'
           },
+          number: value => {
+            const abc = /^[0-9]\d*$/
+            return abc.test(value) || 'Please input number.'
+          },
 
         },
+
+        preview_url: null
 
     }
   },
@@ -287,7 +299,7 @@ export default {
     this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
     this.$events.$on('filter-reset', e => this.onFilterReset())
    
-  },
+    },
 
   created(){
   	this.getCategory();
@@ -334,9 +346,7 @@ export default {
   	close(){
   		this.dialog =false
   	},
-  	previewFiles(){
-  		this.item.name_img = this.$refs.myFiles.files[0]      
-  	},
+
 
   	destroy(id){
   		if (confirm("Do you really want to delete it?")) {
@@ -360,6 +370,12 @@ export default {
         	this.add(item)
       	}
   	},
+
+    previewFiles(){
+      this.item.name_img = this.$refs.myFiles.files[0]
+      this.preview_url =  URL.createObjectURL(this.$refs.myFiles.files[0])
+      console.log(this.preview_url)
+    },
 
   	add(item){
   		let formData = new FormData();
