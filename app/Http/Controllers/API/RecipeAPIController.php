@@ -129,6 +129,7 @@ class RecipeAPIController extends AppBaseController
     public function destroy($id)
     {
         /** @var Recipe $recipe */
+        $pathPublic = public_path().'/files/';
         $fileOld = Recipe::select('link_img','name_img')->where('id', $id)->get()->toArray();
 
         $nameOld = $fileOld[0]['name_img'];
@@ -143,8 +144,6 @@ class RecipeAPIController extends AppBaseController
             ->where('extension', '=', pathinfo($nameOld, PATHINFO_EXTENSION))
             ->first();
         \Storage::cloud()->delete($link_img['path']);
-
-        unlink($pathPublic.$filename);
 
         $recipe = $this->recipeRepository->findWithoutFail($id);
 
