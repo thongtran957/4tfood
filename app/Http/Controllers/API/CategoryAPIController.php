@@ -161,4 +161,20 @@ class CategoryAPIController extends AppBaseController
 
     }
 
+    public function getCategories(Request $request){
+        $listCategories = Category::select('id','name');
+
+        $filter = '';
+        if($request->has('filter') && $request->input('filter'))
+            $filter = json_decode($request->input('filter'));
+
+        if(!empty($filter)){
+            if($filter && $filter->id){
+                $listCategories = $listCategories->where('id',$filter->id);
+            }
+        }
+        $listCategories = $listCategories->get()->toArray();
+        return $listCategories;
+    }
+
 }

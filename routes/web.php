@@ -73,6 +73,17 @@ Route::get('test', function() {
     //     } 
     //     return $a[$min];
     // }
-    unlink('/home/thongtran/thong/web_app/4TFood/public/files/Screenshot from 2018-10-27 22-20-10.png.1542601311');
-    
+    $array= [];
+    $str = "coderbyte";
+    $length = strlen($str);
+
+    for ($i = 0 ; $i < $length ; $i++){
+        array_push($array, $str[$i]);
+    }
+    $a = '';
+        sort($array);
+       
+         $a =  implode("",$array);
+        
+    return $a;
 });

@@ -76209,7 +76209,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_6_vue_
 
   data: function data() {
     return {
-      perPage: 10,
+      perPage: 1,
       moreParams: {},
       apiUrl: 'api/categories',
       categoryFields: [{
