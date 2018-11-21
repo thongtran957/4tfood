@@ -25,9 +25,15 @@ import Dashboard from './components/Dashboard.vue'
 import Example from './components/ExampleComponent.vue'
 import Category from './components/modules/category/Index.vue'
 import Recipe from './components/modules/recipe/Index.vue'
+import Login from './components/modules/login/Index.vue'
 
 const router = new VueRouter({
-    routes: [            
+    routes: [  
+        {
+        path:'/login',
+        name: 'Login',
+        component: Login,
+        },          
         {
             path:'/',
             name:'Dashboard',

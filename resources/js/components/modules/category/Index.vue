@@ -99,7 +99,7 @@ export default {
 
   data () {
     return {
-        perPage : 1,
+        perPage : 10,
         moreParams : {},
     	  apiUrl : 'api/categories',
         categoryFields : [
