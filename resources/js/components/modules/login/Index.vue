@@ -1,28 +1,38 @@
 <template>
-	<div id="app" >
-		<v-container>
-		    <v-layout row class="text-xs-center">
-		      <v-flex xs3 style="background-image: url('http://cdn.wallpapersafari.com/7/86/gqiGH7.jpg')">
-		        <v-card height="500px"></v-card>
-		      </v-flex>
-		      <v-flex xs4 class="grey lighten-4">
-		        <v-container style="position: relative;top: 13%;" class="text-xs-center">
-		          <v-card flat>
-		            <v-card-title primary-title>
-		              <h4>Login</h4>
-		            </v-card-title>
-		            <v-form>
-		            <v-text-field label="Username"></v-text-field>
-		            <v-text-field  label="Password" type="password"></v-text-field>
-		            <v-card-actions>
-		              <v-btn primary large block>Login</v-btn>
-		            </v-card-actions>
-		            </v-form>
-		          </v-card>
-		        </v-container>
-		      </v-flex>
-		    </v-layout>
-		  </v-container>
+	<div class="form-login-wrapper">
+		<main class="login-form">
+      	 <v-container fluid fill-height class="loginOverlay">
+          <v-layout flex align-center justify-center>
+            <v-flex xs12 sm4 elevation-6>
+              <v-toolbar class="pt-5 blue darken-4">
+                <v-toolbar-title class="white--text"><h4>Welcome To Cook Cook</h4></v-toolbar-title>
+                </v-toolbar-items>
+              </v-toolbar>
+              <v-card>
+                <v-card-text class="pt-4">
+                  <div>
+                      <v-form ref="form">
+                        <v-text-field
+			              	label="Username"
+			              	v-model="item.email"
+                        ></v-text-field>
+                        <v-text-field
+                          	label="Password"
+                         	type="password"
+                         	v-model="item.password"
+                        ></v-text-field>
+                        <v-layout >
+                            <v-btn >Submit</v-btn>
+                            <v-btn @click="clear">Clear</v-btn>
+                        </v-layout>
+                      </v-form>
+                  </div>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+          </v-layout>
+       </v-container>
+     </main>
 	</div>
 </template>
 
@@ -33,8 +43,18 @@ export default {
 
   data () {
     return {
-
+    	item:{
+    		email : '',
+    		password : '',
+    	}
     }
+  },
+
+  methods : {
+  	clear(){
+  		this.item.email = '',
+  		this.item.password = ''
+  	}
   }
 }
 </script>
@@ -42,3 +62,5 @@ export default {
 <style lang="css" scoped>
 
 </style>
+
+

@@ -82531,7 +82531,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -82570,13 +82570,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
   name: 'Index',
 
   data: function data() {
-    return {};
+    return {
+      item: {
+        email: '',
+        password: ''
+      }
+    };
+  },
+
+
+  methods: {
+    clear: function clear() {
+      this.item.email = '', this.item.password = '';
+    }
   }
 });
 
@@ -82588,75 +82610,85 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "app" } },
-    [
-      _c(
-        "v-container",
-        [
-          _c(
-            "v-layout",
-            { staticClass: "text-xs-center", attrs: { row: "" } },
-            [
-              _c(
-                "v-flex",
-                {
-                  staticStyle: {
-                    "background-image":
-                      "url('http://cdn.wallpapersafari.com/7/86/gqiGH7.jpg')"
-                  },
-                  attrs: { xs3: "" }
-                },
-                [_c("v-card", { attrs: { height: "500px" } })],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-flex",
-                { staticClass: "grey lighten-4", attrs: { xs4: "" } },
-                [
-                  _c(
-                    "v-container",
-                    {
-                      staticClass: "text-xs-center",
-                      staticStyle: { position: "relative", top: "13%" }
-                    },
-                    [
-                      _c(
-                        "v-card",
-                        { attrs: { flat: "" } },
-                        [
+  return _c("div", { staticClass: "form-login-wrapper" }, [
+    _c(
+      "main",
+      { staticClass: "login-form" },
+      [
+        _c(
+          "v-container",
+          {
+            staticClass: "loginOverlay",
+            attrs: { fluid: "", "fill-height": "" }
+          },
+          [
+            _c(
+              "v-layout",
+              { attrs: { flex: "", "align-center": "", "justify-center": "" } },
+              [
+                _c(
+                  "v-flex",
+                  { attrs: { xs12: "", sm4: "", "elevation-6": "" } },
+                  [
+                    _c(
+                      "v-toolbar",
+                      { staticClass: "pt-5 blue darken-4" },
+                      [
+                        _c("v-toolbar-title", { staticClass: "white--text" }, [
+                          _c("h4", [_vm._v("Welcome To Cook Cook")])
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-card",
+                      [
+                        _c("v-card-text", { staticClass: "pt-4" }, [
                           _c(
-                            "v-card-title",
-                            { attrs: { "primary-title": "" } },
-                            [_c("h4", [_vm._v("Login")])]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-form",
+                            "div",
                             [
-                              _c("v-text-field", {
-                                attrs: { label: "Username" }
-                              }),
-                              _vm._v(" "),
-                              _c("v-text-field", {
-                                attrs: { label: "Password", type: "password" }
-                              }),
-                              _vm._v(" "),
                               _c(
-                                "v-card-actions",
+                                "v-form",
+                                { ref: "form" },
                                 [
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      attrs: {
-                                        primary: "",
-                                        large: "",
-                                        block: ""
-                                      }
+                                  _c("v-text-field", {
+                                    attrs: { label: "Username" },
+                                    model: {
+                                      value: _vm.item.email,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "email", $$v)
+                                      },
+                                      expression: "item.email"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Password",
+                                      type: "password"
                                     },
-                                    [_vm._v("Login")]
+                                    model: {
+                                      value: _vm.item.password,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "password", $$v)
+                                      },
+                                      expression: "item.password"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-layout",
+                                    [
+                                      _c("v-btn", [_vm._v("Submit")]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-btn",
+                                        { on: { click: _vm.clear } },
+                                        [_vm._v("Clear")]
+                                      )
+                                    ],
+                                    1
                                   )
                                 ],
                                 1
@@ -82664,24 +82696,23 @@ var render = function() {
                             ],
                             1
                           )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
