@@ -26,13 +26,19 @@ import Example from './components/ExampleComponent.vue'
 import Category from './components/modules/category/Index.vue'
 import Recipe from './components/modules/recipe/Index.vue'
 import Login from './components/modules/login/Index.vue'
+import Register from './components/modules/register/Index.vue'
 
 const router = new VueRouter({
-    routes: [  
+    routes: [ 
+         {
+            path:'/register',
+            name: 'Register',
+            component: Register,
+        },  
         {
-        path:'/login',
-        name: 'Login',
-        component: Login,
+            path:'/login',
+            name: 'Login',
+            component: Login,
         },          
         {
             path:'/',

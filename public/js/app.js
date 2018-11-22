@@ -44327,6 +44327,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_modules_recipe_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_modules_recipe_Index_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_modules_login_Index_vue__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_modules_login_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_modules_login_Index_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_modules_register_Index_vue__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_modules_register_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_modules_register_Index_vue__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -44356,8 +44358,13 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 
 
+
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     routes: [{
+        path: '/register',
+        name: 'Register',
+        component: __WEBPACK_IMPORTED_MODULE_8__components_modules_register_Index_vue___default.a
+    }, {
         path: '/login',
         name: 'Login',
         component: __WEBPACK_IMPORTED_MODULE_7__components_modules_login_Index_vue___default.a
@@ -52381,7 +52388,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -52470,6 +52477,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -52495,6 +52504,12 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuet
 
   components: {
     'side-bar': __WEBPACK_IMPORTED_MODULE_4__partials_Sidebar_vue___default.a
+  },
+
+  methods: {
+    logout: function logout() {
+      console.log(123);
+    }
   }
 });
 
@@ -75782,7 +75797,11 @@ var render = function() {
                   ])
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("v-spacer"),
+              _vm._v(" "),
+              _c("v-icon", { on: { click: _vm.logout } }, [_vm._v("logout")])
             ],
             1
           ),
@@ -82531,7 +82550,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -82542,6 +82561,141 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+  name: 'Index',
+
+  data: function data() {
+    return {};
+  }
+});
+
+/***/ }),
+/* 210 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("abc")])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-59535009", module.exports)
+  }
+}
+
+/***/ }),
+/* 211 */,
+/* 212 */,
+/* 213 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(214)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(216)
+/* template */
+var __vue_template__ = __webpack_require__(217)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-6ac2d6d9"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/modules/register/Index.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6ac2d6d9", Component.options)
+  } else {
+    hotAPI.reload("data-v-6ac2d6d9", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 214 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(215);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("6d5a7840", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6ac2d6d9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Index.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6ac2d6d9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 215 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 216 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -82588,6 +82742,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       item: {
+        username: '',
         email: '',
         password: ''
       }
@@ -82597,20 +82752,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     clear: function clear() {
-      this.item.email = '', this.item.password = '';
+      this.item.username = '', this.item.email = '', this.item.password = '';
+    },
+    register: function register(item) {
+      axios.post('/api/register', item).then(function (response) {}).catch(function (error) {
+        return console.log(error);
+      });
     }
   }
+
 });
 
 /***/ }),
-/* 210 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "form-login-wrapper" }, [
+  return _c("div", { attrs: { id: "app" } }, [
     _c(
       "main",
       { staticClass: "login-form" },
@@ -82648,48 +82809,57 @@ var render = function() {
                           _c(
                             "div",
                             [
+                              _c("v-text-field", {
+                                attrs: { label: "Username" },
+                                model: {
+                                  value: _vm.item.username,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.item, "username", $$v)
+                                  },
+                                  expression: "item.username"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: { label: "Email" },
+                                model: {
+                                  value: _vm.item.email,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.item, "email", $$v)
+                                  },
+                                  expression: "item.email"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: { label: "Password", type: "password" },
+                                model: {
+                                  value: _vm.item.password,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.item, "password", $$v)
+                                  },
+                                  expression: "item.password"
+                                }
+                              }),
+                              _vm._v(" "),
                               _c(
-                                "v-form",
-                                { ref: "form" },
+                                "v-layout",
                                 [
-                                  _c("v-text-field", {
-                                    attrs: { label: "Username" },
-                                    model: {
-                                      value: _vm.item.email,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.item, "email", $$v)
-                                      },
-                                      expression: "item.email"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("v-text-field", {
-                                    attrs: {
-                                      label: "Password",
-                                      type: "password"
-                                    },
-                                    model: {
-                                      value: _vm.item.password,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.item, "password", $$v)
-                                      },
-                                      expression: "item.password"
-                                    }
-                                  }),
-                                  _vm._v(" "),
                                   _c(
-                                    "v-layout",
-                                    [
-                                      _c("v-btn", [_vm._v("Submit")]),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-btn",
-                                        { on: { click: _vm.clear } },
-                                        [_vm._v("Clear")]
-                                      )
-                                    ],
-                                    1
-                                  )
+                                    "v-btn",
+                                    {
+                                      on: {
+                                        click: function($event) {
+                                          _vm.register(_vm.item)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Submit")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("v-btn", { on: { click: _vm.clear } }, [
+                                    _vm._v("Clear")
+                                  ])
                                 ],
                                 1
                               )
@@ -82720,7 +82890,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-59535009", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-6ac2d6d9", module.exports)
   }
 }
 

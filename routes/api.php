@@ -27,6 +27,9 @@ Route::post('/add/recipes', 'RecipeAPIController@addRecipe');
 Route::post('edit/recipes', 'RecipeAPIController@editRecipe');
 
 
+Route::post('register', 'Auth\RegisterController@create');
+
+
 
 Route::get('4tfood/categories', 'CategoryAPIController@getCategories');
 Route::get('4tfood/recipes', 'RecipeAPIController@getRecipes');
