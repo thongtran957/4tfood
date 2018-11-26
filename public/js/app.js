@@ -44361,9 +44361,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 var access_token = localStorage.getItem('access_token');
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000/';
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+// axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+// axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     routes: [{
