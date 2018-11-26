@@ -49,6 +49,21 @@ class RegisterController extends Controller
     	return $token;
     }
 
+    protected function changeStatus(Request $request){
+        $input = $request->all() ;
+
+        $access_token = $input['access_token'];
+
+        $array = [
+            'status' => 1
+        ];
+
+        $result = User::where('access_token',$access_token)->update($array);
+
+        return redirect('/#/login');
+
+    }
+
 
     
 }

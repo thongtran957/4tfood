@@ -67,7 +67,12 @@ Route::get('testmail', function() {
     // ];
 
     // \Mail::to('ttthongcn@gmail.com')->send(new \App\Mail\VetifyEmail($user));  
-    dd(123);
-
    
 });
+
+
+Route::get('testuser', function() {
+   
+});
+
+

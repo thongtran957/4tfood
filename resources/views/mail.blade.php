@@ -1,2 +1,2 @@
 {{$name}}
-{{$access_token}}
+<a href="{{ $urlActivation }}">{{ $urlActivation }}</a>

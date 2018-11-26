@@ -63,7 +63,11 @@ export default {
 
     methods:{
     	logout(){
-    		console.log(123);
+	    	localStorage.removeItem('access_token')
+	        this.$router.push({
+	            name: 'login'
+	        })
+
     	}
     }
 }

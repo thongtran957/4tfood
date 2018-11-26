@@ -44359,6 +44359,12 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 
 
+var access_token = localStorage.getItem('access_token');
+
+axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     routes: [{
         path: '/register',
@@ -44386,6 +44392,19 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
             component: __WEBPACK_IMPORTED_MODULE_6__components_modules_recipe_Index_vue___default.a
         }]
     }]
+});
+
+router.beforeEach(function (to, from, next) {
+
+    var access_token = localStorage.getItem('access_token');
+    // console.log(from.path)
+    if (to.path !== '/login' && !access_token) {
+        next('/login');
+    } else if (to.path === '/login' && access_token) {
+        next('/');
+    } else {
+        next();
+    }
 });
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
@@ -52388,7 +52407,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -52487,30 +52506,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuetify___default.a, {
-  iconfont: 'md'
+   iconfont: 'md'
 });
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-  name: 'Dashboard',
+   name: 'Dashboard',
 
-  data: function data() {
-    return {
-      height: $(window).height(),
-      hidden: 'auto',
-      drawer: null
-    };
-  },
+   data: function data() {
+      return {
+         height: $(window).height(),
+         hidden: 'auto',
+         drawer: null
+      };
+   },
 
 
-  components: {
-    'side-bar': __WEBPACK_IMPORTED_MODULE_4__partials_Sidebar_vue___default.a
-  },
+   components: {
+      'side-bar': __WEBPACK_IMPORTED_MODULE_4__partials_Sidebar_vue___default.a
+   },
 
-  methods: {
-    logout: function logout() {
-      console.log(123);
-    }
-  }
+   methods: {
+      logout: function logout() {
+         localStorage.removeItem('access_token');
+         this.$router.push({
+            name: 'login'
+         });
+      }
+   }
 });
 
 /***/ }),
@@ -82543,7 +82565,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -82558,13 +82580,79 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
   name: 'Index',
 
   data: function data() {
-    return {};
+    return {
+      item: {
+        email: '',
+        password: '',
+        status: 1
+      }
+    };
+  },
+
+
+  methods: {
+    clear: function clear() {
+      this.item.email = '', this.item.password = '';
+    },
+    login: function login(item) {
+      var _this = this;
+
+      axios.post('/api/login', item).then(function (response) {
+        _this.item.email = '', _this.item.password = '';
+
+        if (response.data) {
+          localStorage.setItem('access_token', response.data.data.access_token);
+
+          axios.defaults.headers.common['Authorization'] = localStorage.getItem('access_token');
+          _this.authenticated = true;
+
+          _this.$router.push({
+            name: 'Dashboard'
+          });
+        } else {
+          _this.authenticated = false;
+        }
+      }).catch(function (error) {
+        return console.log(error);
+      });
+    }
   }
 });
 
@@ -82576,7 +82664,107 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("abc")])
+  return _c("div", { attrs: { id: "app" } }, [
+    _c(
+      "main",
+      { staticClass: "login-form" },
+      [
+        _c(
+          "v-container",
+          {
+            staticClass: "loginOverlay",
+            attrs: { fluid: "", "fill-height": "" }
+          },
+          [
+            _c(
+              "v-layout",
+              { attrs: { flex: "", "align-center": "", "justify-center": "" } },
+              [
+                _c(
+                  "v-flex",
+                  { attrs: { xs12: "", sm4: "", "elevation-6": "" } },
+                  [
+                    _c(
+                      "v-toolbar",
+                      { staticClass: "pt-5 blue darken-4" },
+                      [
+                        _c("v-toolbar-title", { staticClass: "white--text" }, [
+                          _c("h4", [_vm._v("Login To Cook Cook")])
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-card",
+                      [
+                        _c("v-card-text", { staticClass: "pt-4" }, [
+                          _c(
+                            "div",
+                            [
+                              _c("v-text-field", {
+                                attrs: { label: "Email" },
+                                model: {
+                                  value: _vm.item.email,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.item, "email", $$v)
+                                  },
+                                  expression: "item.email"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: { label: "Password", type: "password" },
+                                model: {
+                                  value: _vm.item.password,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.item, "password", $$v)
+                                  },
+                                  expression: "item.password"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "v-layout",
+                                [
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      on: {
+                                        click: function($event) {
+                                          _vm.login(_vm.item)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Submit")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("v-btn", { on: { click: _vm.clear } }, [
+                                    _vm._v("Clear")
+                                  ])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -82791,7 +82979,7 @@ var render = function() {
                       { staticClass: "pt-5 blue darken-4" },
                       [
                         _c("v-toolbar-title", { staticClass: "white--text" }, [
-                          _c("h4", [_vm._v("Welcome To Cook Cook")])
+                          _c("h4", [_vm._v("Register To Cook Cook")])
                         ])
                       ],
                       1
