@@ -12,11 +12,11 @@ class LoginController extends Controller
 
     	try{
             if (!auth()->attempt($credentials)) {
-                return \Response::json(['status' => 'fail user or password']);
+                return \Response::json(['msg' => 'email or password incorrect']);
            
             }
             elseif(auth()->user()->status != 1){
-            	return \Response::json(['status' => 'fail active']);
+            	return \Response::json(['msg' => 'please login gmail to active your account']);
             }
           
         } catch (\Exception $e){

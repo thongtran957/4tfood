@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Notifications\ActivationUser as ActivationUserNotification;
 use App\Mail\VerifyEmail;
 use App\Mail\activationEmail;
+use Response;
 
 class RegisterController extends Controller
 {
@@ -19,7 +20,12 @@ class RegisterController extends Controller
 
     protected function create(Request $request)
     {
-
+        $check = User::where('email', $request['email'])->first();
+       
+        if($check != null){
+           return \Response::json(['msg' => 'email had existed']);
+        }
+        
         $access_token = $this->generateUniqueAccessToken();
 
         $user = User::create([
@@ -36,7 +42,9 @@ class RegisterController extends Controller
             'access_token' => $access_token,
         );
    
-       \Mail::to($request['email'])->send(new activationEmail($data));  
+        \Mail::to($request['email'])->send(new activationEmail($data));  
+
+        return \Response::json(['msg' => 'please login gmail to active your account']);
     
 
     }

@@ -11,27 +11,34 @@
               			<v-card>
                 			<v-card-text class="pt-4">
                   				<div>
-                    				<v-text-field
-			              				label="Username"
-			              				v-model="item.username"
-                    				></v-text-field>
-                    				<v-text-field
-			              				label="Email"
-			              				v-model="item.email"
-                    				></v-text-field>
-                    				<v-text-field
-	                      				label="Password"
-	                     				type="password"
-	                     				v-model="item.password"
-                    				></v-text-field>
-                        			<v-layout >
-                            			<v-btn @click="register(item)">Submit</v-btn>
-                            			<v-btn @click="clear">Clear</v-btn>
-                        			</v-layout>
+                            <v-flex>
+                      				<v-text-field
+  			              				label="Username"
+  			              				v-model="item.username"
+                      				></v-text-field>
+                            </v-flex>
+                            <v-flex>
+                      				<v-text-field
+  			              				label="Email"
+  			              				v-model="item.email"
+                      				></v-text-field>
+                            </v-flex>
+                            <v-flex>
+                      				<v-text-field
+  	                      				label="Password"
+  	                     				type="password"
+  	                     				v-model="item.password"
+                      				></v-text-field>
+                            </v-flex>
+                      			<v-layout >
+                          			<v-btn @click="register(item)">Submit</v-btn>
+                          			<v-btn @click="clear">Clear</v-btn>
+                      			</v-layout>
                   				</div>
                 			</v-card-text>
                       <v-card-text class="pt-4">
                           <div>
+                            <p v-if="msg != null" style="color:red">{{msg}}</p>
                             If you had account. <a href="/#/login">Login</a>
                           </div>
                       </v-card-text>
@@ -54,7 +61,8 @@ export default {
     		username:'',
     		email:'',
     		password:''
-    	}
+    	},
+      msg: null
     }
   },
 
@@ -68,9 +76,8 @@ export default {
   	register(item){
   		axios.post('/api/register',item)
 	      .then(response => { 
-	         this.item.username = '',
-            this.item.email = '',
             this.item.password = ''
+            this.msg = response.data.msg
 	      })
 	      .catch(
 	        error => console.log(error)

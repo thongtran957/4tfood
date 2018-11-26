@@ -37,7 +37,7 @@ class activationEmail extends Mailable
         $urlActivation = $domain.$access_token;
 
   
-        return $this->subject('hello')
+        return $this->subject('Mail From 4TFood')
                     ->view('mail',compact('name', 'urlActivation'));
     }
 }
