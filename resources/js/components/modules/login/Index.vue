@@ -25,6 +25,11 @@
                         			</v-layout>
                   				</div>
                 			</v-card-text>
+                			<v-card-text class="pt-4">
+                  				<div>
+                    				If you don't have account. <a href="/#/register">Register</a>
+                  				</div>
+                			</v-card-text>
               			</v-card>
             		</v-flex>
           		</v-layout>

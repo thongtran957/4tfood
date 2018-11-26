@@ -30,6 +30,11 @@
                         			</v-layout>
                   				</div>
                 			</v-card-text>
+                      <v-card-text class="pt-4">
+                          <div>
+                            If you had account. <a href="/#/login">Login</a>
+                          </div>
+                      </v-card-text>
               			</v-card>
             		</v-flex>
           		</v-layout>
