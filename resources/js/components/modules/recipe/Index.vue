@@ -377,7 +377,7 @@ export default {
     },
 
   	add(item){
-  		let formData = new FormData();
+  		  let formData = new FormData();
         formData.append('file_name', this.item.name_img);
         formData.append('name', this.item.name);
         formData.append('cname', this.item.cname);

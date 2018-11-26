@@ -81,6 +81,7 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
             'Prettus\\Validator\\' => 18,
             'Prettus\\Repository\\' => 19,
             'PhpParser\\' => 10,
+            'Pelago\\' => 7,
         ),
         'O' => 
         array (
@@ -289,6 +290,10 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
+        'Pelago\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pelago/emogrifier/Classes',
+        ),
         'Opis\\Closure\\' => 
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
@@ -424,6 +429,13 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
     );
 
     public static $prefixesPsr0 = array (
+        'S' => 
+        array (
+            'Snowfire\\Beautymail\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/snowfire/beautymail/src',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
@@ -487,6 +499,7 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\API\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/Auth/RegisterController.php',
         'App\\Http\\Controllers\\API\\CategoryAPIController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/CategoryAPIController.php',
         'App\\Http\\Controllers\\API\\RecipeAPIController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/RecipeAPIController.php',
         'App\\Http\\Controllers\\AppBaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/AppBaseController.php',
@@ -508,12 +521,15 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'App\\Http\\Requests\\API\\CreateRecipeAPIRequest' => __DIR__ . '/../..' . '/app/Http/Requests/API/CreateRecipeAPIRequest.php',
         'App\\Http\\Requests\\API\\UpdateCategoryAPIRequest' => __DIR__ . '/../..' . '/app/Http/Requests/API/UpdateCategoryAPIRequest.php',
         'App\\Http\\Requests\\API\\UpdateRecipeAPIRequest' => __DIR__ . '/../..' . '/app/Http/Requests/API/UpdateRecipeAPIRequest.php',
+        'App\\Mail\\VetifyEmail' => __DIR__ . '/../..' . '/app/Mail/VetifyEmail.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Recipe' => __DIR__ . '/../..' . '/app/Models/Recipe.php',
+        'App\\Notifications\\ActivationUser' => __DIR__ . '/../..' . '/app/Notifications/ActivationUser.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
+        'App\\Providers\\GoogleDriveServiceProvider' => __DIR__ . '/../..' . '/app/Providers/GoogleDriveServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Repositories\\CategoryRepository' => __DIR__ . '/../..' . '/app/Repositories/CategoryRepository.php',
         'App\\Repositories\\RecipeRepository' => __DIR__ . '/../..' . '/app/Repositories/RecipeRepository.php',
@@ -11213,6 +11229,7 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'Parsedown' => __DIR__ . '/..' . '/erusev/parsedown/Parsedown.php',
+        'Pelago\\Emogrifier' => __DIR__ . '/..' . '/pelago/emogrifier/Classes/Emogrifier.php',
         'PharIo\\Manifest\\Application' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Application.php',
         'PharIo\\Manifest\\ApplicationName' => __DIR__ . '/..' . '/phar-io/manifest/src/values/ApplicationName.php',
         'PharIo\\Manifest\\Author' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Author.php',
@@ -11948,6 +11965,10 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'SebastianBergmann\\Timer\\RuntimeException' => __DIR__ . '/..' . '/phpunit/php-timer/src/RuntimeException.php',
         'SebastianBergmann\\Timer\\Timer' => __DIR__ . '/..' . '/phpunit/php-timer/src/Timer.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Snowfire\\Beautymail\\Beautymail' => __DIR__ . '/..' . '/snowfire/beautymail/src/Snowfire/Beautymail/Beautymail.php',
+        'Snowfire\\Beautymail\\BeautymailFacade' => __DIR__ . '/..' . '/snowfire/beautymail/src/Snowfire/Beautymail/BeautymailFacade.php',
+        'Snowfire\\Beautymail\\BeautymailServiceProvider' => __DIR__ . '/..' . '/snowfire/beautymail/src/Snowfire/Beautymail/BeautymailServiceProvider.php',
+        'Snowfire\\Beautymail\\CssInlinerPlugin' => __DIR__ . '/..' . '/snowfire/beautymail/src/Snowfire/Beautymail/CssInlinerPlugin.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
         'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',

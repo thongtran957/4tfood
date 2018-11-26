@@ -63,7 +63,9 @@ export default {
   	register(item){
   		axios.post('/api/register',item)
 	      .then(response => { 
-	        
+	         this.item.username = '',
+            this.item.email = '',
+            this.item.password = ''
 	      })
 	      .catch(
 	        error => console.log(error)
