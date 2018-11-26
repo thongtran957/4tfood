@@ -22,6 +22,8 @@
 			        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
 			        <span class="hidden-sm-and-down">Thong Tran</span>
 			    </v-toolbar-title>
+			    <v-spacer></v-spacer>
+			     <v-icon @click="logout">logout</v-icon>			    
 	    	</v-toolbar>
 	    	<v-content>
               	<v-container>
@@ -58,6 +60,16 @@ export default {
 	components: {
       	'side-bar':SideBar,
     },
+
+    methods:{
+    	logout(){
+	    	localStorage.removeItem('access_token')
+	        this.$router.push({
+	            name: 'login'
+	        })
+
+    	}
+    }
 }
 </script>
 

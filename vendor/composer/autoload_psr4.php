@@ -38,6 +38,7 @@ return array(
     'Prettus\\Validator\\' => array($vendorDir . '/prettus/laravel-validation/src/Prettus/Validator'),
     'Prettus\\Repository\\' => array($vendorDir . '/prettus/l5-repository/src/Prettus/Repository'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
+    'Pelago\\' => array($vendorDir . '/pelago/emogrifier/Classes'),
     'Opis\\Closure\\' => array($vendorDir . '/opis/closure/src'),
     'OpenApi\\' => array($vendorDir . '/zircote/swagger-php/src'),
     'NunoMaduro\\Collision\\' => array($vendorDir . '/nunomaduro/collision/src'),

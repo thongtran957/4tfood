@@ -50,40 +50,29 @@ Route::get('delete', function() {
     // dd($b);
     
 });
-Route::get('test', function() {
-    // $a = [2, 3,3];
-    // $array = [];
-    // foreach ($a as $key1 => $value1) {
-    //     $temp = $value1;
-    //     $b = array_slice($a,$key1+1);
-    //     foreach ($b as $key2 => $value2) {
-    //         if($value2 == $temp){
-    //             array_push($array,$key2 +$key1+1);
-    //         }
-    //     }
-    // }
-    // if(empty($array)){
-    //     return -1;
-    // }else{
-    //     $min = $array[0];
-    //     foreach ($array as $key => $value) {
-    //         if($value < $min){
-    //             $min = $value;
-    //         }
-    //     } 
-    //     return $a[$min];
-    // }
-    $array= [];
-    $str = "coderbyte";
-    $length = strlen($str);
 
-    for ($i = 0 ; $i < $length ; $i++){
-        array_push($array, $str[$i]);
-    }
-    $a = '';
-        sort($array);
-       
-         $a =  implode("",$array);
-        
-    return $a;
+
+Route::get('testmail', function() {
+    // $data = array('name'=>"Thong Tran From 4TFood");
+   
+    //   \Mail::send(['html'=>'mail'], $data, function($message) {
+    //         $message->to('ttthongcn@gmail.com', 'Tutorials Point')->subject
+    //         ('Laravel Basic Testing Mail');
+           
+    //   });
+    //   echo "Basic Email Sent. Check your inbox.";
+
+    // $user = [
+    //     'name' => 'thongtran',
+    // ];
+
+    // \Mail::to('ttthongcn@gmail.com')->send(new \App\Mail\VetifyEmail($user));  
+   
 });
+
+
+Route::get('testuser', function() {
+   
+});
+
+

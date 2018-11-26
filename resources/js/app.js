@@ -26,13 +26,25 @@ import Example from './components/ExampleComponent.vue'
 import Category from './components/modules/category/Index.vue'
 import Recipe from './components/modules/recipe/Index.vue'
 import Login from './components/modules/login/Index.vue'
+import Register from './components/modules/register/Index.vue'
+
+var access_token = localStorage.getItem('access_token')
+
+// axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+// axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const router = new VueRouter({
-    routes: [  
+    routes: [ 
+         {
+            path:'/register',
+            name: 'Register',
+            component: Register,
+        },  
         {
-        path:'/login',
-        name: 'Login',
-        component: Login,
+            path:'/login',
+            name: 'Login',
+            component: Login,
         },          
         {
             path:'/',
@@ -60,9 +72,23 @@ const router = new VueRouter({
     ],
 });
 
+router.beforeEach((to, from, next) => { 
+
+    var access_token = localStorage.getItem('access_token')  
+    // console.log(from.path)
+    if (to.path !== '/login' && !access_token) {
+        next('/login');
+    }else if(to.path === '/login' && access_token){
+        next('/');
+    } 
+    else {
+        next();
+    }
+});
+
 const app = new Vue({
     el: '#app',
-   	template: '<app></app>',
+    template: '<app></app>',
     components: { App },
     router
 });
