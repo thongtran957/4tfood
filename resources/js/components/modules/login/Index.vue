@@ -25,6 +25,12 @@
                         			</v-layout>
                   				</div>
                 			</v-card-text>
+                			<v-card-text class="pt-4">
+                  				<div>
+                            <p v-if="msg != null" style="color:red">{{msg}}</p>
+                    				If you don't have account. <a href="/#/register">Register</a>
+                  				</div>
+                			</v-card-text>
               			</v-card>
             		</v-flex>
           		</v-layout>
@@ -44,7 +50,8 @@ export default {
     		email:'',
     		password:'',
     		status : 1
-    	}
+    	},
+      msg:null
     }
   },
 
@@ -57,11 +64,10 @@ export default {
   	login(item){
   		axios.post('/api/login',item)
 	      .then(response => { 
-            this.item.email = '',
             this.item.password = ''
-          
-            if(response.data ){
-				localStorage.setItem('access_token', response.data.data.access_token)
+            this.msg = response.data.msg
+            if(response.data && response.data.data){
+				        localStorage.setItem('access_token', response.data.data.access_token)
 
                 axios.defaults.headers.common['Authorization'] =  localStorage.getItem('access_token')
                 this.authenticated = true

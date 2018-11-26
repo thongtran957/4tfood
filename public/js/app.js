@@ -52529,7 +52529,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuet
       logout: function logout() {
          localStorage.removeItem('access_token');
          this.$router.push({
-            name: 'login'
+            name: 'Login'
          });
       }
    }
@@ -82565,7 +82565,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -82576,6 +82576,12 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -82622,7 +82628,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         email: '',
         password: '',
         status: 1
-      }
+      },
+      msg: null
     };
   },
 
@@ -82635,9 +82642,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       axios.post('/api/login', item).then(function (response) {
-        _this.item.email = '', _this.item.password = '';
-
-        if (response.data) {
+        _this.item.password = '';
+        _this.msg = response.data.msg;
+        if (response.data && response.data.data) {
           localStorage.setItem('access_token', response.data.data.access_token);
 
           axios.defaults.headers.common['Authorization'] = localStorage.getItem('access_token');
@@ -82748,6 +82755,22 @@ var render = function() {
                             ],
                             1
                           )
+                        ]),
+                        _vm._v(" "),
+                        _c("v-card-text", { staticClass: "pt-4" }, [
+                          _c("div", [
+                            _vm.msg != null
+                              ? _c("p", { staticStyle: { color: "red" } }, [
+                                  _vm._v(_vm._s(_vm.msg))
+                                ])
+                              : _vm._e(),
+                            _vm._v(
+                              "\n                    \t\t\t\tIf you don't have account. "
+                            ),
+                            _c("a", { attrs: { href: "/#/register" } }, [
+                              _vm._v("Register")
+                            ])
+                          ])
                         ])
                       ],
                       1
@@ -82862,7 +82885,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -82873,6 +82896,18 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -82924,7 +82959,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         username: '',
         email: '',
         password: ''
-      }
+      },
+      msg: null
     };
   },
 
@@ -82937,7 +82973,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       axios.post('/api/register', item).then(function (response) {
-        _this.item.username = '', _this.item.email = '', _this.item.password = '';
+        _this.item.password = '';
+        _this.msg = response.data.msg;
       }).catch(function (error) {
         return console.log(error);
       });
@@ -82992,38 +83029,59 @@ var render = function() {
                           _c(
                             "div",
                             [
-                              _c("v-text-field", {
-                                attrs: { label: "Username" },
-                                model: {
-                                  value: _vm.item.username,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.item, "username", $$v)
-                                  },
-                                  expression: "item.username"
-                                }
-                              }),
+                              _c(
+                                "v-flex",
+                                [
+                                  _c("v-text-field", {
+                                    attrs: { label: "Username" },
+                                    model: {
+                                      value: _vm.item.username,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "username", $$v)
+                                      },
+                                      expression: "item.username"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
                               _vm._v(" "),
-                              _c("v-text-field", {
-                                attrs: { label: "Email" },
-                                model: {
-                                  value: _vm.item.email,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.item, "email", $$v)
-                                  },
-                                  expression: "item.email"
-                                }
-                              }),
+                              _c(
+                                "v-flex",
+                                [
+                                  _c("v-text-field", {
+                                    attrs: { label: "Email" },
+                                    model: {
+                                      value: _vm.item.email,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "email", $$v)
+                                      },
+                                      expression: "item.email"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
                               _vm._v(" "),
-                              _c("v-text-field", {
-                                attrs: { label: "Password", type: "password" },
-                                model: {
-                                  value: _vm.item.password,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.item, "password", $$v)
-                                  },
-                                  expression: "item.password"
-                                }
-                              }),
+                              _c(
+                                "v-flex",
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Password",
+                                      type: "password"
+                                    },
+                                    model: {
+                                      value: _vm.item.password,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.item, "password", $$v)
+                                      },
+                                      expression: "item.password"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
                               _vm._v(" "),
                               _c(
                                 "v-layout",
@@ -83049,6 +83107,22 @@ var render = function() {
                             ],
                             1
                           )
+                        ]),
+                        _vm._v(" "),
+                        _c("v-card-text", { staticClass: "pt-4" }, [
+                          _c("div", [
+                            _vm.msg != null
+                              ? _c("p", { staticStyle: { color: "red" } }, [
+                                  _vm._v(_vm._s(_vm.msg))
+                                ])
+                              : _vm._e(),
+                            _vm._v(
+                              "\n                            If you had account. "
+                            ),
+                            _c("a", { attrs: { href: "/#/login" } }, [
+                              _vm._v("Login")
+                            ])
+                          ])
                         ])
                       ],
                       1

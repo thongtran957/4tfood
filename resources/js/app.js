@@ -28,6 +28,7 @@ import Recipe from './components/modules/recipe/Index.vue'
 import Login from './components/modules/login/Index.vue'
 import Register from './components/modules/register/Index.vue'
 
+
 var access_token = localStorage.getItem('access_token')
 
 // axios.defaults.baseURL = 'http://127.0.0.1:8000/';
@@ -36,7 +37,7 @@ var access_token = localStorage.getItem('access_token')
 
 const router = new VueRouter({
     routes: [ 
-         {
+        {
             path:'/register',
             name: 'Register',
             component: Register,

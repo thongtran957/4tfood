@@ -65,7 +65,7 @@ export default {
     	logout(){
 	    	localStorage.removeItem('access_token')
 	        this.$router.push({
-	            name: 'login'
+	            name: 'Login'
 	        })
 
     	}
