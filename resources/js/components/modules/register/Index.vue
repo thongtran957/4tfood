@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import { get,del,put,post } from '../../../helper/index.js'
 export default {
 
   name: 'Index',
@@ -74,7 +75,7 @@ export default {
   	},
 
   	register(item){
-  		axios.post('/api/register',item)
+  		axios.post(config.API_URL+'register',item)
 	      .then(response => { 
             this.item.password = ''
             this.msg = response.data.msg

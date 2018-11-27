@@ -16,10 +16,7 @@ class CheckLogin
      */
     public function handle($request, Closure $next)
     {
-
-
-        // dd($request->header());
-        // dd('111111');
+     
         // dd(\Request::header('Authorization'));
 
         return $next($request);
