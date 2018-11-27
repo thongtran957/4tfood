@@ -39,7 +39,7 @@
                       <v-card-text class="pt-4">
                           <div>
                             <p v-if="msg != null" style="color:red">{{msg}}</p>
-                            If you had account. <a href="google.com">Login</a>
+                            If you had account. <a href="/#/login">Login</a>
                           </div>
                       </v-card-text>
               			</v-card>
@@ -52,6 +52,7 @@
 
 <script>
 import { get,del,put,post } from '../../../helper/index.js'
+import config from '../../../config/index.js'
 export default {
 
   name: 'Index',

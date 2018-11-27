@@ -82782,7 +82782,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -82794,6 +82794,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_index_js__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config_index_js__ = __webpack_require__(127);
 //
 //
 //
@@ -82835,6 +82836,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -82860,7 +82862,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     login: function login(item) {
       var _this = this;
 
-      axios.post(config.API_URL + 'login', item).then(function (response) {
+      axios.post(__WEBPACK_IMPORTED_MODULE_1__config_index_js__["a" /* default */].API_URL + 'login', item).then(function (response) {
         _this.item.password = '';
         _this.msg = response.data.msg;
         if (response.data && response.data.data) {
@@ -83104,7 +83106,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -83116,6 +83118,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_index_js__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config_index_js__ = __webpack_require__(127);
 //
 //
 //
@@ -83168,6 +83171,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -83193,7 +83197,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     register: function register(item) {
       var _this = this;
 
-      axios.post(config.API_URL + 'register', item).then(function (response) {
+      axios.post(__WEBPACK_IMPORTED_MODULE_1__config_index_js__["a" /* default */].API_URL + 'register', item).then(function (response) {
         _this.item.password = '';
         _this.msg = response.data.msg;
       }).catch(function (error) {
@@ -83340,7 +83344,7 @@ var render = function() {
                             _vm._v(
                               "\n                            If you had account. "
                             ),
-                            _c("a", { attrs: { href: "google.com" } }, [
+                            _c("a", { attrs: { href: "/#/login" } }, [
                               _vm._v("Login")
                             ])
                           ])
