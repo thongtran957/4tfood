@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -11,7 +12,7 @@ class LoginController extends Controller
     	$credentials = $request->only(['email', 'password']);
 
     	try{
-            if (!auth()->attempt($credentials)) {
+            if (!Auth::attempt($credentials)) {
                 return \Response::json(['msg' => 'email or password incorrect']);
            
             }
@@ -24,7 +25,7 @@ class LoginController extends Controller
         }
 
         $data = [
-        	'access_token' => auth()->user()->access_token,
+        	'access_token' => auth()->user()->access_token,          
             'user' => auth()->user(),
         ];
 

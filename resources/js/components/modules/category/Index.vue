@@ -88,6 +88,7 @@ import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePagination
 import axios from 'axios'
 import CategoryFilter from './CategoryFilter'
 import VueEvents from 'vue-events'
+import { get,del,put,post } from '../../../helper/index.js'
 
 Vue.component('category-filter', CategoryFilter)
 
@@ -194,7 +195,7 @@ export default {
 
       destroy(id){
         if (confirm("Do you really want to delete it?")) {
-              axios.delete('api/categories/'+id)
+              del('api/categories/'+id)
               .then(response => { 
                 this.$refs.vuetable.reload()
                 this.snack = true,
@@ -233,7 +234,7 @@ export default {
       },
 
       add(item){
-         axios.post('api/categories',item)
+         post('api/categories/', item)
         .then(response => { 
           this.$refs.vuetable.reload()
           this.dialog = false,
@@ -244,10 +245,22 @@ export default {
         .catch(
           error => console.log(error)
         )
+
+        // axios({
+        //   method: 'post',
+        //   url: 'api/categories',
+        //   params: item,
+        //   headers:{
+        //       'Authorization':localStorage.getItem('access_token'),
+        //       'Content-Type': 'application/x-www-form-urlencoded'
+        //   },
+        // }).then(response=>{
+        //   console.log(response)
+        // });
       },
       
       edit(item){
-        axios.put('api/categories/'+item.id,item)
+        put('api/categories/'+item.id,item)
         .then(response => { 
           this.$refs.vuetable.reload()
           this.dialog = false,

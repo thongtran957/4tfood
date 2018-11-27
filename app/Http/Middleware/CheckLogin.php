@@ -16,11 +16,16 @@ class CheckLogin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check()) {
-          return $next($request);
-        }
 
 
-        return redirect('/#/login');
+        // dd($request->header());
+        // dd('111111');
+        // dd(\Request::header('Authorization'));
+
+        return $next($request);
+
+
+
+
     }
 }

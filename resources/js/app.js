@@ -32,9 +32,9 @@ import Register from './components/modules/register/Index.vue'
 
 var access_token = localStorage.getItem('access_token')
 
-// axios.defaults.baseURL = 'http://127.0.0.1:8000/';
-// axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
-// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+axios.defaults.headers.common['Authorization'] =  access_token;
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const router = new VueRouter({
     routes: [ 

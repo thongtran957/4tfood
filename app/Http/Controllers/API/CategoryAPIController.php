@@ -35,7 +35,7 @@ class CategoryAPIController extends AppBaseController
      * @return Response
      */
     public function index(Request $request)
-    {
+    {   
         $this->categoryRepository->pushCriteria(new RequestCriteria($request));
         $this->categoryRepository->pushCriteria(new LimitOffsetCriteria($request));
 
@@ -66,6 +66,7 @@ class CategoryAPIController extends AppBaseController
      */
     public function store(CreateCategoryAPIRequest $request)
     {
+
         $input = $request->all();
 
         $categories = $this->categoryRepository->create($input);

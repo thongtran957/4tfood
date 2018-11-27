@@ -22,10 +22,12 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
+        'e91d0dc994644828154ae2387ede1ca8' => __DIR__ . '/..' . '/spatie/string/src/string_functions.php',
         '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
         '0d8253363903f0ac7b0978dcde4e28a0' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/helpers.php',
         'a28599dc506da421718fad75955a4b9d' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        '72b1e3f4a2af9b30b3f137b3ec2057fc' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -42,6 +44,10 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         array (
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
+        ),
+        'U' => 
+        array (
+            'Underscore\\' => 11,
         ),
         'T' => 
         array (
@@ -65,6 +71,8 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Spatie\\String\\' => 14,
+            'Spatie\\Activitylog\\' => 19,
         ),
         'R' => 
         array (
@@ -82,6 +90,7 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
             'Prettus\\Repository\\' => 19,
             'PhpParser\\' => 10,
             'Pelago\\' => 7,
+            'Patchwork\\' => 10,
         ),
         'O' => 
         array (
@@ -182,6 +191,11 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
+        'Underscore\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/anahkiasen/underscore-php/src',
+            1 => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests',
+        ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
             0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
@@ -250,6 +264,14 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Spatie\\String\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/string/src',
+        ),
+        'Spatie\\Activitylog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-activitylog/src',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -293,6 +315,10 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'Pelago\\' => 
         array (
             0 => __DIR__ . '/..' . '/pelago/emogrifier/Classes',
+        ),
+        'Patchwork\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork',
         ),
         'Opis\\Closure\\' => 
         array (
@@ -499,6 +525,7 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\API\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/Auth/LoginController.php',
         'App\\Http\\Controllers\\API\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/Auth/RegisterController.php',
         'App\\Http\\Controllers\\API\\CategoryAPIController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/CategoryAPIController.php',
         'App\\Http\\Controllers\\API\\RecipeAPIController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/RecipeAPIController.php',
@@ -512,6 +539,7 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
+        'App\\Http\\Middleware\\CheckLogin' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckLogin.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
@@ -521,7 +549,7 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'App\\Http\\Requests\\API\\CreateRecipeAPIRequest' => __DIR__ . '/../..' . '/app/Http/Requests/API/CreateRecipeAPIRequest.php',
         'App\\Http\\Requests\\API\\UpdateCategoryAPIRequest' => __DIR__ . '/../..' . '/app/Http/Requests/API/UpdateCategoryAPIRequest.php',
         'App\\Http\\Requests\\API\\UpdateRecipeAPIRequest' => __DIR__ . '/../..' . '/app/Http/Requests/API/UpdateRecipeAPIRequest.php',
-        'App\\Mail\\VetifyEmail' => __DIR__ . '/../..' . '/app/Mail/VetifyEmail.php',
+        'App\\Mail\\activationEmail' => __DIR__ . '/../..' . '/app/Mail/activationEmail.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Recipe' => __DIR__ . '/../..' . '/app/Models/Recipe.php',
         'App\\Notifications\\ActivationUser' => __DIR__ . '/../..' . '/app/Notifications/ActivationUser.php',
@@ -10778,6 +10806,7 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'Monolog\\Processor\\UidProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
         'Monolog\\Processor\\WebProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
         'Monolog\\Registry' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Registry.php',
+        'Normalizer' => __DIR__ . '/..' . '/patchwork/utf8/src/Normalizer.php',
         'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Laravel/CollisionServiceProvider.php',
         'NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Laravel/ExceptionHandler.php',
         'NunoMaduro\\Collision\\Adapters\\Laravel\\Inspector' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Laravel/Inspector.php',
@@ -11229,6 +11258,16 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'Parsedown' => __DIR__ . '/..' . '/erusev/parsedown/Parsedown.php',
+        'Patchwork\\PHP\\Shim\\Iconv' => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork/PHP/Shim/Iconv.php',
+        'Patchwork\\PHP\\Shim\\Intl' => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork/PHP/Shim/Intl.php',
+        'Patchwork\\PHP\\Shim\\Mbstring' => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork/PHP/Shim/Mbstring.php',
+        'Patchwork\\PHP\\Shim\\Normalizer' => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork/PHP/Shim/Normalizer.php',
+        'Patchwork\\PHP\\Shim\\Xml' => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork/PHP/Shim/Xml.php',
+        'Patchwork\\TurkishUtf8' => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork/TurkishUtf8.php',
+        'Patchwork\\Utf8' => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork/Utf8.php',
+        'Patchwork\\Utf8\\BestFit' => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork/Utf8/BestFit.php',
+        'Patchwork\\Utf8\\Bootup' => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork/Utf8/Bootup.php',
+        'Patchwork\\Utf8\\WindowsStreamWrapper' => __DIR__ . '/..' . '/patchwork/utf8/src/Patchwork/Utf8/WindowsStreamWrapper.php',
         'Pelago\\Emogrifier' => __DIR__ . '/..' . '/pelago/emogrifier/Classes/Emogrifier.php',
         'PharIo\\Manifest\\Application' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Application.php',
         'PharIo\\Manifest\\ApplicationName' => __DIR__ . '/..' . '/phar-io/manifest/src/values/ApplicationName.php',
@@ -11969,6 +12008,23 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'Snowfire\\Beautymail\\BeautymailFacade' => __DIR__ . '/..' . '/snowfire/beautymail/src/Snowfire/Beautymail/BeautymailFacade.php',
         'Snowfire\\Beautymail\\BeautymailServiceProvider' => __DIR__ . '/..' . '/snowfire/beautymail/src/Snowfire/Beautymail/BeautymailServiceProvider.php',
         'Snowfire\\Beautymail\\CssInlinerPlugin' => __DIR__ . '/..' . '/snowfire/beautymail/src/Snowfire/Beautymail/CssInlinerPlugin.php',
+        'Spatie\\Activitylog\\ActivityLogStatus' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/ActivityLogStatus.php',
+        'Spatie\\Activitylog\\ActivityLogger' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/ActivityLogger.php',
+        'Spatie\\Activitylog\\ActivitylogServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/ActivitylogServiceProvider.php',
+        'Spatie\\Activitylog\\CleanActivitylogCommand' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/CleanActivitylogCommand.php',
+        'Spatie\\Activitylog\\Contracts\\Activity' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/Contracts/Activity.php',
+        'Spatie\\Activitylog\\Exceptions\\CouldNotLogActivity' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/Exceptions/CouldNotLogActivity.php',
+        'Spatie\\Activitylog\\Exceptions\\CouldNotLogChanges' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/Exceptions/CouldNotLogChanges.php',
+        'Spatie\\Activitylog\\Exceptions\\InvalidConfiguration' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/Exceptions/InvalidConfiguration.php',
+        'Spatie\\Activitylog\\Models\\Activity' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/Models/Activity.php',
+        'Spatie\\Activitylog\\Traits\\CausesActivity' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/Traits/CausesActivity.php',
+        'Spatie\\Activitylog\\Traits\\DetectsChanges' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/Traits/DetectsChanges.php',
+        'Spatie\\Activitylog\\Traits\\LogsActivity' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/Traits/LogsActivity.php',
+        'Spatie\\String\\Exceptions\\ErrorCreatingStringException' => __DIR__ . '/..' . '/spatie/string/src/Exceptions/ErrorCreatingStringException.php',
+        'Spatie\\String\\Exceptions\\UnknownFunctionException' => __DIR__ . '/..' . '/spatie/string/src/Exceptions/UnknownFunctionException.php',
+        'Spatie\\String\\Exceptions\\UnsetOffsetException' => __DIR__ . '/..' . '/spatie/string/src/Exceptions/UnsetOffsetException.php',
+        'Spatie\\String\\Integrations\\Underscore' => __DIR__ . '/..' . '/spatie/string/src/Integrations/Underscore.php',
+        'Spatie\\String\\Str' => __DIR__ . '/..' . '/spatie/string/src/Str.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
         'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',
@@ -12571,6 +12627,34 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
+        'Underscore\\Dispatch' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Dispatch.php',
+        'Underscore\\DispatchTest' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/DispatchTest.php',
+        'Underscore\\Dummies\\DummyClass' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/Dummies/DummyClass.php',
+        'Underscore\\Dummies\\DummyDefault' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/Dummies/DummyDefault.php',
+        'Underscore\\Method' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Method.php',
+        'Underscore\\MethodTest' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/MethodTest.php',
+        'Underscore\\Methods\\ArraysMethods' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Methods/ArraysMethods.php',
+        'Underscore\\Methods\\CollectionMethods' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Methods/CollectionMethods.php',
+        'Underscore\\Methods\\FunctionsMethods' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Methods/FunctionsMethods.php',
+        'Underscore\\Methods\\NumberMethods' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Methods/NumberMethods.php',
+        'Underscore\\Methods\\ObjectMethods' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Methods/ObjectMethods.php',
+        'Underscore\\Methods\\StringsMethods' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Methods/StringsMethods.php',
+        'Underscore\\Parse' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Parse.php',
+        'Underscore\\ParseTest' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/ParseTest.php',
+        'Underscore\\Traits\\Repository' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Traits/Repository.php',
+        'Underscore\\Types\\Arrays' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Types/Arrays.php',
+        'Underscore\\Types\\ArraysTest' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/Types/ArraysTest.php',
+        'Underscore\\Types\\Functions' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Types/Functions.php',
+        'Underscore\\Types\\FunctionsTest' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/Types/FunctionsTest.php',
+        'Underscore\\Types\\Number' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Types/Number.php',
+        'Underscore\\Types\\NumberTest' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/Types/NumberTest.php',
+        'Underscore\\Types\\Object' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Types/Object.php',
+        'Underscore\\Types\\ObjectTest' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/Types/ObjectTest.php',
+        'Underscore\\Types\\StringTest' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/Types/StringTest.php',
+        'Underscore\\Types\\Strings' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Types/Strings.php',
+        'Underscore\\Underscore' => __DIR__ . '/..' . '/anahkiasen/underscore-php/src/Underscore.php',
+        'Underscore\\UnderscoreTest' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/UnderscoreTest.php',
+        'Underscore\\UnderscoreTestCase' => __DIR__ . '/..' . '/anahkiasen/underscore-php/tests/UnderscoreTestCase.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',

@@ -165,6 +165,7 @@ return [
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
         App\Providers\GoogleDriveServiceProvider::class,
+        Spatie\Activitylog\ActivitylogServiceProvider::class,
 
 
     ],

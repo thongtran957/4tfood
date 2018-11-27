@@ -71,8 +71,10 @@ Route::get('testmail', function() {
 });
 
 
-Route::get('testuser', function() {
-   
+Route::get('testactivity', function() {
+    activity()->log('Look mum, I logged something');
+   $result =  Spatie\Activitylog\Models\Activity::all();
+
 });
 
 
