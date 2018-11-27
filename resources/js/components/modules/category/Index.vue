@@ -81,6 +81,7 @@
 </template>
 
 <script>
+import config from '../../../config/index.js'
 import Vue from 'vue'
 import Vuetable from 'vuetable-2/src/components/Vuetable'
 import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
@@ -102,7 +103,7 @@ export default {
     return {
         perPage : 10,
         moreParams : {},
-    	  apiUrl : 'api/categories',
+    	  apiUrl : config.API_URL+'categories',
         categoryFields : [
             {   
                 name :'id', 
@@ -185,7 +186,6 @@ export default {
   mounted(){
     this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
     this.$events.$on('filter-reset', e => this.onFilterReset())
-   
   },
 
   methods: {
@@ -195,7 +195,7 @@ export default {
 
       destroy(id){
         if (confirm("Do you really want to delete it?")) {
-              del('api/categories/'+id)
+              del(config.API_URL+'categories/'+id)
               .then(response => { 
                 this.$refs.vuetable.reload()
                 this.snack = true,
@@ -234,7 +234,7 @@ export default {
       },
 
       add(item){
-         post('api/categories/', item)
+         post(config.API_URL+'categories/', item)
         .then(response => { 
           this.$refs.vuetable.reload()
           this.dialog = false,
@@ -260,7 +260,7 @@ export default {
       },
       
       edit(item){
-        put('api/categories/'+item.id,item)
+        put(config.API_URL+'categories/'+item.id,item)
         .then(response => { 
           this.$refs.vuetable.reload()
           this.dialog = false,
