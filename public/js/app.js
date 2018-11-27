@@ -82796,7 +82796,7 @@ var render = function() {
                             _vm._v(
                               "\n                    \t\t\t\tIf you don't have account. "
                             ),
-                            _c("a", { attrs: { href: "/#/register" } }, [
+                            _c("a", { attrs: { href: "google.com" } }, [
                               _vm._v("Register")
                             ])
                           ])
@@ -83148,7 +83148,7 @@ var render = function() {
                             _vm._v(
                               "\n                            If you had account. "
                             ),
-                            _c("a", { attrs: { href: "/#/login" } }, [
+                            _c("a", { attrs: { href: "google.com" } }, [
                               _vm._v("Login")
                             ])
                           ])
