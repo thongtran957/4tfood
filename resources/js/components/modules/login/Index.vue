@@ -28,7 +28,7 @@
                 			<v-card-text class="pt-4">
                   				<div>
                             <p v-if="msg != null" style="color:red">{{msg}}</p>
-                    				If you don't have account. <a href="/#/register">Register</a>
+                    				If you don't have account. <a href="google.com">Register</a>
                   				</div>
                 			</v-card-text>
               			</v-card>
