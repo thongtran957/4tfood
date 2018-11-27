@@ -44325,10 +44325,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_modules_category_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_modules_category_Index_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_modules_recipe_Index_vue__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_modules_recipe_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_modules_recipe_Index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_modules_login_Index_vue__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_modules_login_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_modules_login_Index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_modules_register_Index_vue__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_modules_register_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_modules_register_Index_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Login_vue__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_Login_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_modules_login_Index_vue__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_modules_login_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_modules_login_Index_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_modules_register_Index_vue__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_modules_register_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_modules_register_Index_vue__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -44359,6 +44361,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 
 
+
 var access_token = localStorage.getItem('access_token');
 
 // axios.defaults.baseURL = 'http://127.0.0.1:8000/';
@@ -44367,17 +44370,23 @@ var access_token = localStorage.getItem('access_token');
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     routes: [{
-        path: '/register',
-        name: 'Register',
-        component: __WEBPACK_IMPORTED_MODULE_8__components_modules_register_Index_vue___default.a
-    }, {
         path: '/login',
         name: 'Login',
-        component: __WEBPACK_IMPORTED_MODULE_7__components_modules_login_Index_vue___default.a
+        component: __WEBPACK_IMPORTED_MODULE_7__components_Login_vue___default.a,
+        children: [{
+            path: '/register',
+            name: 'Register',
+            component: __WEBPACK_IMPORTED_MODULE_9__components_modules_register_Index_vue___default.a
+        }, {
+            path: '/login',
+            name: 'LoginIndex',
+            component: __WEBPACK_IMPORTED_MODULE_8__components_modules_login_Index_vue___default.a
+        }]
     }, {
         path: '/',
         name: 'Dashboard',
         component: __WEBPACK_IMPORTED_MODULE_3__components_Dashboard_vue___default.a,
+        meta: { requiresAuth: true },
         children: [{
             path: '/example',
             name: 'Example',
@@ -44397,8 +44406,11 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 router.beforeEach(function (to, from, next) {
 
     var access_token = localStorage.getItem('access_token');
-    // console.log(from.path)
-    if (to.path !== '/login' && !access_token) {
+
+    if (to.matched.some(function (record) {
+        return record.meta.requiresAuth;
+    }) && !access_token) {
+
         next('/login');
     } else if (to.path === '/login' && access_token) {
         next('/');
@@ -52529,7 +52541,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuet
       logout: function logout() {
          localStorage.removeItem('access_token');
          this.$router.push({
-            name: 'Login'
+            name: 'LoginIndex'
          });
       }
    }
@@ -83156,6 +83168,140 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 215 */,
+/* 216 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(217)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(219)
+/* template */
+var __vue_template__ = __webpack_require__(220)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-6bdc8b8e"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Login.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6bdc8b8e", Component.options)
+  } else {
+    hotAPI.reload("data-v-6bdc8b8e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 217 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(218);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("adbb9ec6", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6bdc8b8e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Login.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6bdc8b8e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Login.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 218 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 219 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+  name: 'Login',
+
+  data: function data() {
+    return {};
+  }
+});
+
+/***/ }),
+/* 220 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_c("router-view")], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6bdc8b8e", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
