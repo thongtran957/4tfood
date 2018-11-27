@@ -12610,8 +12610,8 @@ process.umask = function() { return 0; };
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
-  API_URL: "http://127.0.0.1:8000/" + 'api/',
-  BASE_URL: "http://127.0.0.1:8000/"
+  API_URL: "https://chefguidecenter.herokuapp.com/" + 'api/',
+  BASE_URL: "https://chefguidecenter.herokuapp.com/"
 });
 
 /***/ }),
@@ -82781,7 +82781,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -82861,6 +82861,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     login: function login(item) {
       var _this = this;
 
+      console.log(__WEBPACK_IMPORTED_MODULE_1__config_index_js__["a" /* default */].API_URL);
       axios.post(__WEBPACK_IMPORTED_MODULE_1__config_index_js__["a" /* default */].API_URL + 'login', item).then(function (response) {
         _this.item.password = '';
         _this.msg = response.data.msg;

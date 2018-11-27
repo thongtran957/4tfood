@@ -64,6 +64,7 @@ export default {
   	},
 
   	login(item){
+      console.log(config.API_URL)
   		axios.post(config.API_URL+'login',item)
 	      .then(response => { 
             this.item.password = ''
