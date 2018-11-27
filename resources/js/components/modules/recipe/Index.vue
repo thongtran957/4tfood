@@ -159,6 +159,7 @@ import { VueEditor } from 'vue2-editor'
 import Lodash from 'lodash'
 import RecipeFilter from './RecipeFilter'
 import VueEvents from 'vue-events'
+import { get,del,put,post } from '../../../helper/index.js'
 
 Vue.component('recipe-filter', RecipeFilter)
 
@@ -350,7 +351,7 @@ export default {
 
   	destroy(id){
   		if (confirm("Do you really want to delete it?")) {
-              axios.delete('api/recipes/'+id)
+              del('api/recipes/'+id)
               .then(response => { 
                 this.$refs.vuetable.reload()
                 this.snack = true,
@@ -390,7 +391,7 @@ export default {
         formData.append('ingredient', this.item.ingredient);
         formData.append('instruction', this.item.instruction);
         
-  		axios.post('api/add/recipes', formData)
+  		post('api/add/recipes', formData)
         .then(response => { 
 	          this.$refs.vuetable.reload()
 	          this.dialog = false,
@@ -418,7 +419,7 @@ export default {
         formData.append('ingredient', this.item.ingredient);
         formData.append('instruction', this.item.instruction);
         
-  		axios.post('api/edit/recipes', formData)
+  		post('api/edit/recipes', formData)
         .then(response => { 
 	          this.$refs.vuetable.reload()
 	          this.dialog = false,
@@ -433,7 +434,7 @@ export default {
 
   	getCategory(){
   		var data =[];
-  		axios.get('api/list/categories')
+  		get('api/list/categories')
         .then(response => { 
          	_.forEach(response.data, function(value) {
                 data.push(value.name);

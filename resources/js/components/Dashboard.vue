@@ -35,6 +35,7 @@
 	</div>
 </template>
 
+
 <script>
 import Vue from 'vue'
 import Vuetify from 'vuetify'
@@ -65,7 +66,7 @@ export default {
     	logout(){
 	    	localStorage.removeItem('access_token')
 	        this.$router.push({
-	            name: 'Login'
+	            name: 'LoginIndex'
 	        })
 
     	}
