@@ -44416,25 +44416,31 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 
 var access_token = localStorage.getItem('access_token');
-header('Access-Control-Allow-Origin: https://chefguidecenter.herokuapp.com');
 axios.defaults.headers.common['Authorization'] = access_token;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-    routes: [{
-        path: '/login',
-        name: 'Login',
-        component: __WEBPACK_IMPORTED_MODULE_7__components_Login_vue___default.a,
-        children: [{
-            path: '/register',
-            name: 'Register',
-            component: __WEBPACK_IMPORTED_MODULE_9__components_modules_register_Index_vue___default.a
-        }, {
-            path: '/login',
-            name: 'LoginIndex',
-            component: __WEBPACK_IMPORTED_MODULE_8__components_modules_login_Index_vue___default.a
-        }]
-    }, {
+    routes: [
+    // {
+    //     path:'/login',
+    //     name:'Login',
+    //     component:Login,
+    //     children : [    
+    //         {
+    //             path:'/register',
+    //             name: 'Register',
+    //             component: Register,
+    //         },  
+    //         {
+    //             path:'/login',
+    //             name: 'LoginIndex',
+    //             component: LoginIndex,
+    //         },  
+
+    //     ]
+    // },
+
+    {
         path: '/',
         name: 'Dashboard',
         component: __WEBPACK_IMPORTED_MODULE_3__components_Dashboard_vue___default.a,
@@ -44455,21 +44461,21 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     }]
 });
 
-router.beforeEach(function (to, from, next) {
+// router.beforeEach((to, from, next) => { 
 
-    var access_token = localStorage.getItem('access_token');
+//     var access_token = localStorage.getItem('access_token')  
 
-    if (to.matched.some(function (record) {
-        return record.meta.requiresAuth;
-    }) && !access_token) {
+//     if (to.matched.some(record => record.meta.requiresAuth) && !access_token) {
 
-        next('/login');
-    } else if (to.path === '/login' && access_token) {
-        next('/');
-    } else {
-        next();
-    }
-});
+//         next('/login');
+//     }else if(to.path === '/login' && access_token){
+//         next('/');
+//     } 
+//     else {
+//         next();
+//     }
+
+// });
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',

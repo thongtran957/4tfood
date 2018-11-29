@@ -31,30 +31,29 @@ import Register from './components/modules/register/Index.vue'
 
 
 var access_token = localStorage.getItem('access_token')
-header('Access-Control-Allow-Origin: https://chefguidecenter.herokuapp.com');
 axios.defaults.headers.common['Authorization'] =  access_token;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const router = new VueRouter({
     routes: [ 
-        {
-            path:'/login',
-            name:'Login',
-            component:Login,
-            children : [    
-                {
-                    path:'/register',
-                    name: 'Register',
-                    component: Register,
-                },  
-                {
-                    path:'/login',
-                    name: 'LoginIndex',
-                    component: LoginIndex,
-                },  
+        // {
+        //     path:'/login',
+        //     name:'Login',
+        //     component:Login,
+        //     children : [    
+        //         {
+        //             path:'/register',
+        //             name: 'Register',
+        //             component: Register,
+        //         },  
+        //         {
+        //             path:'/login',
+        //             name: 'LoginIndex',
+        //             component: LoginIndex,
+        //         },  
                 
-            ]
-        },
+        //     ]
+        // },
 
         {
             path:'/',
@@ -83,21 +82,21 @@ const router = new VueRouter({
     ],
 });
 
-router.beforeEach((to, from, next) => { 
+// router.beforeEach((to, from, next) => { 
 
-    var access_token = localStorage.getItem('access_token')  
+//     var access_token = localStorage.getItem('access_token')  
 
-    if (to.matched.some(record => record.meta.requiresAuth) && !access_token) {
+//     if (to.matched.some(record => record.meta.requiresAuth) && !access_token) {
 
-        next('/login');
-    }else if(to.path === '/login' && access_token){
-        next('/');
-    } 
-    else {
-        next();
-    }
+//         next('/login');
+//     }else if(to.path === '/login' && access_token){
+//         next('/');
+//     } 
+//     else {
+//         next();
+//     }
     
-});
+// });
 
 const app = new Vue({
     el: '#app',
