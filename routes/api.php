@@ -29,14 +29,14 @@ Route::get('4tfood/recipes', 'RecipeAPIController@getRecipes');
 
 
 Route::group(['middleware' => ['checklogin']], function () {
-	
-
-});
- 	Route::resource('categories', 'CategoryAPIController');
+		Route::resource('categories', 'CategoryAPIController');
 	Route::get('list/categories', 'CategoryAPIController@getList');
 
 	Route::resource('recipes', 'RecipeAPIController');
 	Route::post('add/recipes', 'RecipeAPIController@addRecipe');
 	Route::post('edit/recipes', 'RecipeAPIController@editRecipe');
 
+
+});
+ 
 	
