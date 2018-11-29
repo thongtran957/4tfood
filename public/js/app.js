@@ -44416,7 +44416,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 
 var access_token = localStorage.getItem('access_token');
-header('Access-Control-Allow-Origin: https://chefguidecenter.herokuapp.com');
+// header('Access-Control-Allow-Origin: https://chefguidecenter.herokuapp.com');
 axios.defaults.headers.common['Authorization'] = access_token;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 

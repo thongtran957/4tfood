@@ -31,7 +31,7 @@ import Register from './components/modules/register/Index.vue'
 
 
 var access_token = localStorage.getItem('access_token')
-header('Access-Control-Allow-Origin: https://chefguidecenter.herokuapp.com');
+// header('Access-Control-Allow-Origin: https://chefguidecenter.herokuapp.com');
 axios.defaults.headers.common['Authorization'] =  access_token;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
