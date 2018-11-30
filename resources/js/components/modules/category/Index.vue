@@ -232,20 +232,6 @@ export default {
             this.addCate(item)
           }
       },
-
-      // addCate(item){
-      //    post('api/add/categories/', item)
-      //   .then(response => { 
-      //     this.$refs.vuetable.reload()
-      //     this.dialog = false,
-      //     this.snack = true,
-      //     this.snackColor = 'success',
-      //     this.snackText = 'Data saved'
-      //   })
-      //   .catch(
-      //     error => console.log(error)
-      //   )        
-      // },
       
       edit(item){
         put('api/categories/'+item.id,item)
