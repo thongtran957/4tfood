@@ -229,35 +229,23 @@ export default {
           if(this.check){
             this.edit(item)
           }else{
-            this.add(item)
+            this.addCate(item)
           }
       },
 
-      add(item){
-         post('api/add/categories/', item)
-        .then(response => { 
-          this.$refs.vuetable.reload()
-          this.dialog = false,
-          this.snack = true,
-          this.snackColor = 'success',
-          this.snackText = 'Data saved'
-        })
-        .catch(
-          error => console.log(error)
-        )
-
-        // axios({
-        //   method: 'post',
-        //   url: 'api/categories',
-        //   params: item,
-        //   headers:{
-        //       'Authorization':localStorage.getItem('access_token'),
-        //       'Content-Type': 'application/x-www-form-urlencoded'
-        //   },
-        // }).then(response=>{
-        //   console.log(response)
-        // });
-      },
+      // addCate(item){
+      //    post('api/add/categories/', item)
+      //   .then(response => { 
+      //     this.$refs.vuetable.reload()
+      //     this.dialog = false,
+      //     this.snack = true,
+      //     this.snackColor = 'success',
+      //     this.snackText = 'Data saved'
+      //   })
+      //   .catch(
+      //     error => console.log(error)
+      //   )        
+      // },
       
       edit(item){
         put('api/categories/'+item.id,item)

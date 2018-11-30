@@ -178,11 +178,4 @@ class CategoryAPIController extends AppBaseController
         return $listCategories;
     }
 
-    public function addCategory(Request $request){
-        $input = $request->all();
-
-        dd($input);
-
-    }
-
 }
