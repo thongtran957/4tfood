@@ -234,7 +234,7 @@ export default {
       },
 
       add(item){
-         post('api/categories/', item)
+         post('api/add/categories/', item)
         .then(response => { 
           this.$refs.vuetable.reload()
           this.dialog = false,
