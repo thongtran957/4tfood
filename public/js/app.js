@@ -76458,7 +76458,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_7_vue_
     add: function add(item) {
       var _this3 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_8__helper_index_js__["c" /* post */])(__WEBPACK_IMPORTED_MODULE_0__config_index_js__["a" /* default */].API_URL + 'categories/', item).then(function (response) {
+      Object(__WEBPACK_IMPORTED_MODULE_8__helper_index_js__["c" /* post */])(__WEBPACK_IMPORTED_MODULE_0__config_index_js__["a" /* default */].API_URL + 'categories', item).then(function (response) {
         _this3.$refs.vuetable.reload();
         _this3.dialog = false, _this3.snack = true, _this3.snackColor = 'success', _this3.snackText = 'Data saved';
       }).catch(function (error) {

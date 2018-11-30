@@ -233,7 +233,7 @@ export default {
           }
       },
       add(item){
-         post(config.API_URL+'categories/', item)
+         post(config.API_URL+'categories', item)
         .then(response => { 
           this.$refs.vuetable.reload()
           this.dialog = false,
@@ -245,7 +245,7 @@ export default {
           error => console.log(error)
         )
       },   
-         
+
       edit(item){
         put('api/categories/'+item.id,item)
         .then(response => { 
