@@ -76196,7 +76196,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -76452,15 +76452,25 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_7_vue_
       if (this.check) {
         this.edit(item);
       } else {
-        this.addCate(item);
+        this.add(item);
       }
     },
-    edit: function edit(item) {
+    add: function add(item) {
       var _this3 = this;
 
-      Object(__WEBPACK_IMPORTED_MODULE_8__helper_index_js__["d" /* put */])('api/categories/' + item.id, item).then(function (response) {
+      Object(__WEBPACK_IMPORTED_MODULE_8__helper_index_js__["c" /* post */])(__WEBPACK_IMPORTED_MODULE_0__config_index_js__["a" /* default */].API_URL + 'categories/', item).then(function (response) {
         _this3.$refs.vuetable.reload();
-        _this3.dialog = false, _this3.snack = true, _this3.snackColor = 'success', _this3.snackText = 'Data edited';
+        _this3.dialog = false, _this3.snack = true, _this3.snackColor = 'success', _this3.snackText = 'Data saved';
+      }).catch(function (error) {
+        return console.log(error);
+      });
+    },
+    edit: function edit(item) {
+      var _this4 = this;
+
+      Object(__WEBPACK_IMPORTED_MODULE_8__helper_index_js__["d" /* put */])('api/categories/' + item.id, item).then(function (response) {
+        _this4.$refs.vuetable.reload();
+        _this4.dialog = false, _this4.snack = true, _this4.snackColor = 'success', _this4.snackText = 'Data edited';
       }).catch(function (error) {
         return console.log(error);
       });
@@ -76473,21 +76483,21 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_7_vue_
       this.$refs.vuetable.changePage(page);
     },
     onFilterSet: function onFilterSet(filterText) {
-      var _this4 = this;
+      var _this5 = this;
 
       this.moreParams = {
         'filter': filterText
       };
       __WEBPACK_IMPORTED_MODULE_1_vue___default.a.nextTick(function () {
-        return _this4.$refs.vuetable.refresh();
+        return _this5.$refs.vuetable.refresh();
       });
     },
     onFilterReset: function onFilterReset() {
-      var _this5 = this;
+      var _this6 = this;
 
       this.moreParams = {};
       __WEBPACK_IMPORTED_MODULE_1_vue___default.a.nextTick(function () {
-        return _this5.$refs.vuetable.refresh();
+        return _this6.$refs.vuetable.refresh();
       });
     }
   }
