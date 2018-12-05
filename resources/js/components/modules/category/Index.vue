@@ -222,7 +222,8 @@ export default {
         this.item = {
           id : param.id,
           name : param.name
-        }
+        },
+        this.check =false
       },
 
       save(item){

@@ -341,7 +341,9 @@ export default {
         	active : param.active,
         	suitable_for : param.suitable_for,
         	link_img : param.link_img,
-        }
+        },
+         this.check = false
+
     },
 
   	close(){
