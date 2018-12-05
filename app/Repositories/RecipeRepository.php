@@ -118,7 +118,7 @@ class RecipeRepository extends BaseRepository
     public function edit($name_img, $link_img, $input){
         $category_id = Category::select('id')->where('name',$input['cname'])->first()->toArray();
         $category_id = $category_id['id'];
-        
+        dd($input['active']);
         if($input['active'] != null){
             $active = 1;
         }else{
