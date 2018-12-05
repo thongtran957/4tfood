@@ -190,7 +190,6 @@ export default {
 
   methods: {
       close(){
-        this.check = false
         this.dialog =false 
       },
 
@@ -210,6 +209,7 @@ export default {
       },
 
       showAddItem(){
+        this.check = false,
         this.dialog = true,
         this.item = {
           id:'',

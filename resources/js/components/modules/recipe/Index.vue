@@ -308,6 +308,7 @@ export default {
  
   methods:{
   	showAddItem(){
+      this.check = false,
   		this.dialog = true,
   		this.item = {
   			id: '',
@@ -345,7 +346,6 @@ export default {
     },
 
   	close(){
-      this.check = false
   		this.dialog =false
   	},
 
