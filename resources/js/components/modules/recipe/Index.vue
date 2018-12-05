@@ -341,13 +341,12 @@ export default {
         	active : param.active,
         	suitable_for : param.suitable_for,
         	link_img : param.link_img,
-        },
-         this.check = false
-
+        }
     },
 
   	close(){
   		this.dialog =false
+      this.check = false
   	},
 
 
@@ -380,7 +379,6 @@ export default {
     },
 
   	add(item){
-
   		  let formData = new FormData();
         formData.append('file_name', this.item.name_img);
         formData.append('name', this.item.name);
@@ -429,7 +427,6 @@ export default {
 	          this.snack = true,
 	          this.snackColor = 'success',
 	          this.snackText = 'Data edited'
-            this.check = false
         })
         .catch(
           error => console.log(error)

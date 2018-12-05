@@ -191,6 +191,7 @@ export default {
   methods: {
       close(){
         this.dialog =false 
+        this.check = false
       },
 
       destroy(id){
@@ -222,8 +223,7 @@ export default {
         this.item = {
           id : param.id,
           name : param.name
-        },
-        this.check =false
+        }
       },
 
       save(item){
@@ -255,7 +255,6 @@ export default {
           this.snack = true,
           this.snackColor = 'success',
           this.snackText = 'Data edited'
-          this.check =false
         })
         .catch(
           error => console.log(error)
