@@ -124,7 +124,7 @@ class RecipeRepository extends BaseRepository
         }else{
             $active = 0;
         }
-        dd($active);
+        
         $array = [
             'name' => $input['name'],
             'category_id' => $category_id,
