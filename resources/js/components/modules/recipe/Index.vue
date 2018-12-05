@@ -345,8 +345,8 @@ export default {
     },
 
   	close(){
-  		this.dialog =false
       this.check = false
+  		this.dialog =false
   	},
 
 

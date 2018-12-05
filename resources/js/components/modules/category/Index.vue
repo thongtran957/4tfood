@@ -190,8 +190,8 @@ export default {
 
   methods: {
       close(){
-        this.dialog =false 
         this.check = false
+        this.dialog =false 
       },
 
       destroy(id){
