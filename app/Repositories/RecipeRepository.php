@@ -119,8 +119,8 @@ class RecipeRepository extends BaseRepository
         $category_id = Category::select('id')->where('name',$input['cname'])->first()->toArray();
         $category_id = $category_id['id'];
       
-        if($input['active'] != false){
-            $active = 1;
+        if($input['active'] == false){
+            $active = 0;
         }else{
             $active = 0;
         }
