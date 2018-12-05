@@ -254,6 +254,7 @@ export default {
           this.snack = true,
           this.snackColor = 'success',
           this.snackText = 'Data edited'
+          this.check =false
         })
         .catch(
           error => console.log(error)
