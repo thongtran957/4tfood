@@ -16,10 +16,10 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
-        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
-        'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
+        'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e91d0dc994644828154ae2387ede1ca8' => __DIR__ . '/..' . '/spatie/string/src/string_functions.php',
@@ -161,9 +161,11 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'B' => 
         array (
             'BeyondCode\\DumpServer\\' => 22,
+            'Barryvdh\\Cors\\' => 14,
         ),
         'A' => 
         array (
+            'Asm89\\Stack\\' => 12,
             'App\\' => 4,
         ),
     );
@@ -444,6 +446,14 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         array (
             0 => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src',
         ),
+        'Barryvdh\\Cors\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/barryvdh/laravel-cors/src',
+        ),
+        'Asm89\\Stack\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -562,6 +572,12 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'App\\Repositories\\CategoryRepository' => __DIR__ . '/../..' . '/app/Repositories/CategoryRepository.php',
         'App\\Repositories\\RecipeRepository' => __DIR__ . '/../..' . '/app/Repositories/RecipeRepository.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
+        'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
+        'Barryvdh\\Cors\\HandleCors' => __DIR__ . '/..' . '/barryvdh/laravel-cors/src/HandleCors.php',
+        'Barryvdh\\Cors\\HandlePreflight' => __DIR__ . '/..' . '/barryvdh/laravel-cors/src/HandlePreflight.php',
+        'Barryvdh\\Cors\\LumenServiceProvider' => __DIR__ . '/..' . '/barryvdh/laravel-cors/src/LumenServiceProvider.php',
+        'Barryvdh\\Cors\\ServiceProvider' => __DIR__ . '/..' . '/barryvdh/laravel-cors/src/ServiceProvider.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
@@ -12004,10 +12020,6 @@ class ComposerStaticInitc1421ff6993ad42101b8dc6dca80d0e2
         'SebastianBergmann\\Timer\\RuntimeException' => __DIR__ . '/..' . '/phpunit/php-timer/src/RuntimeException.php',
         'SebastianBergmann\\Timer\\Timer' => __DIR__ . '/..' . '/phpunit/php-timer/src/Timer.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
-        'Snowfire\\Beautymail\\Beautymail' => __DIR__ . '/..' . '/snowfire/beautymail/src/Snowfire/Beautymail/Beautymail.php',
-        'Snowfire\\Beautymail\\BeautymailFacade' => __DIR__ . '/..' . '/snowfire/beautymail/src/Snowfire/Beautymail/BeautymailFacade.php',
-        'Snowfire\\Beautymail\\BeautymailServiceProvider' => __DIR__ . '/..' . '/snowfire/beautymail/src/Snowfire/Beautymail/BeautymailServiceProvider.php',
-        'Snowfire\\Beautymail\\CssInlinerPlugin' => __DIR__ . '/..' . '/snowfire/beautymail/src/Snowfire/Beautymail/CssInlinerPlugin.php',
         'Spatie\\Activitylog\\ActivityLogStatus' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/ActivityLogStatus.php',
         'Spatie\\Activitylog\\ActivityLogger' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/ActivityLogger.php',
         'Spatie\\Activitylog\\ActivitylogServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/ActivitylogServiceProvider.php',

@@ -166,6 +166,7 @@ return [
         \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
         App\Providers\GoogleDriveServiceProvider::class,
         Spatie\Activitylog\ActivitylogServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
 
     ],
