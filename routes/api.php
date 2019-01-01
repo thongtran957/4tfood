@@ -29,6 +29,7 @@ Route::get('4tfood/recipes', 'RecipeAPIController@getRecipes');
 
 
 Route::group(['middleware' => ['checklogin']], function () {
+	
 	Route::resource('categories', 'CategoryAPIController');
 	Route::get('list/categories', 'CategoryAPIController@getList');
 	

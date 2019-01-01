@@ -44416,7 +44416,6 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 
 var access_token = localStorage.getItem('access_token');
-// header('Access-Control-Allow-Origin: https://chefguidecenter.herokuapp.com');
 axios.defaults.headers.common['Authorization'] = access_token;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -75744,7 +75743,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   data: function data() {
     return {
-      items: [{ title: 'Home', icon: 'dashboard', link: '/' }, { title: 'About', icon: 'people', link: 'example' }, { title: 'Category', icon: 'category', link: 'category' }, { title: 'Recipe', icon: 'receipt', link: 'recipe' }]
+      items: [{ title: 'Home', icon: 'dashboard', link: '/' }, { title: 'About', icon: 'face', link: 'example' }, { title: 'Category', icon: 'category', link: 'category' }, { title: 'Recipe', icon: 'receipt', link: 'recipe' }]
     };
   }
 });
@@ -75880,7 +75879,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("span", { staticClass: "hidden-sm-and-down" }, [
-                    _vm._v("Thong Tran")
+                    _vm._v("Cook Cook")
                   ])
                 ],
                 1
@@ -82852,7 +82851,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     login: function login(item) {
       var _this = this;
 
-      console.log(__WEBPACK_IMPORTED_MODULE_1__config_index_js__["a" /* default */].API_URL);
       axios.post(__WEBPACK_IMPORTED_MODULE_1__config_index_js__["a" /* default */].API_URL + 'login', item).then(function (response) {
         _this.item.password = '';
         _this.msg = response.data.msg;
@@ -82860,6 +82858,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           localStorage.setItem('access_token', response.data.data.access_token);
 
           axios.defaults.headers.common['Authorization'] = localStorage.getItem('access_token');
+
           _this.authenticated = true;
 
           _this.$router.push({

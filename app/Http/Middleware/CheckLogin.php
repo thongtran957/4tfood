@@ -17,11 +17,10 @@ class CheckLogin
     public function handle($request, Closure $next)
     {
      
+
         // dd(\Request::header('Authorization'));
 
         return $next($request);
-
-
 
 
     }

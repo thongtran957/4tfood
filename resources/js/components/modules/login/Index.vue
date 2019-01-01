@@ -64,7 +64,6 @@ export default {
   	},
 
   	login(item){
-      console.log(config.API_URL)
   		axios.post(config.API_URL+'login',item)
 	      .then(response => { 
             this.item.password = ''
@@ -73,6 +72,7 @@ export default {
 				        localStorage.setItem('access_token', response.data.data.access_token)
 
                 axios.defaults.headers.common['Authorization'] =  localStorage.getItem('access_token')
+
                 this.authenticated = true
 
                 this.$router.push({

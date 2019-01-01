@@ -26,7 +26,7 @@ class LoginController extends Controller
 
         $data = [
         	'access_token' => auth()->user()->access_token,          
-            'user' => auth()->user(),
+            // 'user' => auth()->user(),
         ];
 
         return \Response::json(['data' => $data]);
