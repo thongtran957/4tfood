@@ -33,7 +33,7 @@ class activationEmail extends Mailable
     {
         $name =  $this->user['name'];
         $access_token = $this->user['access_token'];
-        $domain = 'https://chefguidecenter.herokuapp.com/api/activation/register?access_token=';
+        $domain = 'https://cook-cook.herokuapp.com/api/activation/register?access_token=';
         $urlActivation = $domain.$access_token;
 
   
