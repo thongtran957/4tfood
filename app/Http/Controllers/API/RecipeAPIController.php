@@ -272,6 +272,7 @@ class RecipeAPIController extends AppBaseController
     }
 
     public function getRecipes(Request $request){
+        
         $listRecipes = Recipe::join('categories', 'recipes.category_id', '=', 'categories.id')->select('categories.name as cname','recipes.*');
         if($request->has('sort') && $request->input('sort'))
             $sortBy = explode('|', $request->input('sort'));
