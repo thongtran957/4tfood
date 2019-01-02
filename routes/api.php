@@ -26,6 +26,7 @@ Route::get('activation/register', 'Auth\RegisterController@changeStatus');
 
 Route::get('4tfood/categories', 'CategoryAPIController@getCategories');
 Route::get('4tfood/recipes', 'RecipeAPIController@getRecipes');
+Route::get('4tfood/onerecipe', 'RecipeAPIController@getRecipe');
 
 
 Route::group(['middleware' => ['checklogin']], function () {

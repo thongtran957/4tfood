@@ -12610,8 +12610,8 @@ process.umask = function() { return 0; };
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
-  API_URL: "https://cook-cook.herokuapp.com/" + 'api/',
-  BASE_URL: "https://cook-cook.herokuapp.com/"
+  API_URL: "http://127.0.0.1:8000/" + 'api/',
+  BASE_URL: "http://127.0.0.1:8000/"
 });
 
 /***/ }),
@@ -82175,7 +82175,6 @@ var render = function() {
                             disabled:
                               !_vm.item.name ||
                               !_vm.item.cname ||
-                              !_vm.item.suitable_for ||
                               !_vm.item.cost ||
                               !_vm.item.prep_time ||
                               !_vm.item.cook_time ||

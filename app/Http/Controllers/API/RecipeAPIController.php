@@ -305,4 +305,11 @@ class RecipeAPIController extends AppBaseController
         return $listRecipes;
     }
 
+    public function getRecipe(Request $request){
+        $input = $request->all();
+        $recipe = Recipe::join('categories', 'recipes.id', '=', 'categories.id')->select('categories.name as cname','recipes.*')->where('recipes.id',$input['id'])->get()->toArray();
+
+        return $recipe;
+    }
+
 }
