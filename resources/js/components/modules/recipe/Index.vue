@@ -142,7 +142,7 @@
             <v-toolbar dark color="primary">
               <v-spacer></v-spacer>
               <v-toolbar-items>
-                <v-btn dark flat @click.native="save(item)" :disabled="!item.name || !item.cname || !item.suitable_for || !item.cost || !item.prep_time || !item.cook_time || !item.description || !item.ingredient || !item.instruction">Save</v-btn>
+                <v-btn dark flat @click.native="save(item)" :disabled="!item.name || !item.cname  || !item.cost || !item.prep_time || !item.cook_time || !item.description || !item.ingredient || !item.instruction">Save</v-btn>
               </v-toolbar-items>
             </v-toolbar>
         	 </v-card>
@@ -172,7 +172,7 @@ export default {
   data () {
     return {
     	perPage : 10,
-        moreParams : {},
+      moreParams : {},
     	apiUrl : 'api/recipes',
     	recipeFields : [
             {   
@@ -342,8 +342,7 @@ export default {
         	active : param.active,
         	suitable_for : param.suitable_for,
         	link_img : param.link_img,
-        },
-        this.check = false
+        }
     },
 
   	close(){
