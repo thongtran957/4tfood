@@ -272,7 +272,7 @@ class RecipeAPIController extends AppBaseController
     }
 
     public function getRecipes(Request $request){
-        
+
         $listRecipes = Recipe::join('categories', 'recipes.category_id', '=', 'categories.id')->select('categories.name as cname','recipes.*');
         if($request->has('sort') && $request->input('sort'))
             $sortBy = explode('|', $request->input('sort'));
@@ -291,13 +291,14 @@ class RecipeAPIController extends AppBaseController
         $filter = '';
         if($request->has('filter') && $request->input('filter'))
             $filter = json_decode($request->input('filter'));
-
+     
         if(!empty($filter)){
             if($filter && $filter->name){
                 $listRecipes = $listRecipes->where('recipes.name', 'like', '%'.$filter->name.'%');              
             }
-            if($filter && $filter->category_id){
-                $listRecipes = $listRecipes->where('recipes.category_id',$filter->category_id);
+            if($filter && $filter->cid){
+
+                $listRecipes = $listRecipes->where('recipes.category_id',$filter->cid);
             }
         }
 
@@ -307,8 +308,9 @@ class RecipeAPIController extends AppBaseController
     }
 
     public function getRecipe(Request $request){
+
         $input = $request->all();
-        
+
         $recipe = Recipe::join('categories', 'recipes.category_id', '=', 'categories.id')->select('categories.name as cname','recipes.*')->where('recipes.id',$input['id'])->get()->toArray();
 
         return $recipe;
