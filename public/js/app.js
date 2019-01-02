@@ -12610,8 +12610,8 @@ process.umask = function() { return 0; };
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
-  API_URL: "http://127.0.0.1:8000/" + 'api/',
-  BASE_URL: "http://127.0.0.1:8000/"
+  API_URL: "https://cook-cook.herokuapp.com/" + 'api/',
+  BASE_URL: "https://cook-cook.herokuapp.com/"
 });
 
 /***/ }),
